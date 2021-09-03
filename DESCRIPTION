@@ -1,0 +1,20 @@
+Package: FuzzyResampling
+Type: Package
+Title: Various resampling procedures for triangular and trapezoidal fuzzy numbers
+Version: 0.1.0
+Authors@R: c(
+    person("Maciej", "Romaniuk", email = "mroman@ibspan.waw.pl", role = "cre"),
+    person("Przemyslaw", "Grzegorzewski", email = "przemyslaw.grzegorzewski@ibspan.waw.pl", role = "aut"),
+    person("Olgierd", "Hryniewicz", email = "hryniewi@ibspan.waw.pl", role = "aut"))
+Maintainer: Maciej Romaniuk <mroman@ibspan.waw.pl>
+Description: The classical (i.e. Efron's) bootstrap is widely used for both the real (i.e. "crisp") and fuzzy data.
+ The main aim of the algorithms implemented in this package
+ is to overcome a problem with repetition of a few distinct values and to create fuzzy numbers,
+ which are "similar" (but not the same) to values from the initial sample.
+ To do this, different characteristics of triangular/trapezoidal numbers are kept (like the value, the ambiguity, etc.).
+Imports: ttutils,
+ stats
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
