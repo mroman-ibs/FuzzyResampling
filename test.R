@@ -42,3 +42,8 @@ load_all()
 check()
 
 ?dmethod
+
+use_readme_rmd()
+
+
+build_readme()

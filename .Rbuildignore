@@ -1,2 +1,4 @@
-^FuzzyResampling1\.Rproj$
+^FuzzyResampling\.Rproj$
 ^\.Rproj\.user$
+^test.R
+^README\.Rmd$
