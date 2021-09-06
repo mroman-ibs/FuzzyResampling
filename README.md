@@ -25,9 +25,9 @@ The following procedures are available:
 
 ## Installation
 
-You can install the released version of FuzzyResampling from
-[CRAN](https://CRAN.R-project.org) with:
+You can install the released version of FuzzyResampling with:
 
 ``` r
-install.packages("FuzzyResampling")
+library(devtools)
+install_github("mroman_ibs/FuzzyResampling")
 ```
