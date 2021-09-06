@@ -13,8 +13,8 @@ are “similar” (but not the same) to values from the initial sample. The
 initial sample should consist of triangular or trapezoidal fuzzy
 numbers.
 
-The following procedures are available: \* *classicalBootstrap* \*
-*VAmethod* \* *EWmethod* \* *VAAmethod* \* *VAFmethod* \* *dmethod* \*
+The following procedures are available: + *classicalBootstrap* +
+*VAmethod* + *EWmethod* + *VAAmethod* + *VAFmethod* + *dmethod* +
 *wmethod*
 
 ## Installation
