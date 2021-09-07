@@ -14,6 +14,8 @@ Description: The classical (i.e. Efron's) bootstrap is widely used for both the 
  To do this, different characteristics of triangular/trapezoidal numbers are kept (like the value, the ambiguity, etc.).
 Imports: ttutils,
  stats
+URL: https://github.com/mroman-ibs/FuzzyResampling
+BugReports: https://github.com/mroman-ibs/FuzzyResampling/issues
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
