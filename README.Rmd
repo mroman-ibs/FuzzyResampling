@@ -17,15 +17,17 @@ knitr::opts_chunk$set(
 # FuzzyResampling
 
 <!-- badges: start -->
+[![Travis build status](https://travis-ci.com/mroman-ibs/FuzzyResampling.svg?branch=master)](https://travis-ci.com/mroman-ibs/FuzzyResampling)
+[![R-CMD-check](https://github.com/mroman-ibs/FuzzyResampling/workflows/R-CMD-check/badge.svg)](https://github.com/mroman-ibs/FuzzyResampling/actions)
 <!-- badges: end -->
 
-The goal of FuzzyResampling is to provide additional resampling procedures, apart from the classical bootstrap (i.e. Efron's
+The goal of FuzzyResampling (R package) is to provide additional resampling procedures, apart from the classical bootstrap (i.e. Efron's
 approach, see [@Efron1994]), for fuzzy data.
 In the classical approach, secondary samples are drawing with replacement from the initial sample.
 Therefore most of these bootstrap samples contain repeated values. Moreover, if the  size of the primary sample is small then all secondary samples consist of only a few distinct values, which is a serious disadvantage.
 
 To overcome this problem, special resampling algorithms for fuzzy data were introduced (see [@grzegorzewski2019; @grzegorzewskietal2020; 
-@grzegorzewskiamcs2020; @romaniuk_hryniewicz]).
+@grzegorzewskiamcs2020;@Grzegorzewski2021; @romaniuk_hryniewicz]).
 These methods randomly create values that are "similar" to values from the initial sample, but not exactly the same.
 During the creation process, some of the characteristics of the initial fuzzy values are kept (e.g., the value, the width, etc.).
 It was shown that these algorithms provide serious advantages in some statistical areas (like standard error
@@ -36,13 +38,13 @@ The initial sample (in the form of a vector or a matrix) should consist of trian
 
 The following procedures are available in the library (R language):
 
-+ *classicalBootstrap*
-+ *VAmethod*
-+ *EWmethod*
-+ *VAAmethod*
-+ *VAFmethod*
-+ *dmethod*
-+ *wmethod*
++ *classicalBootstrap* - classical approach based on Efron's method,
++ *VAmethod* - resampling method which preserves the value and ambiguity (see [@grzegorzewskietal2020]),
++ *EWmethod* - resampling method which preserves the expected value and width (see [@grzegorzewskiamcs2020]),
++ *VAAmethod* - resampling method which preserves the value, left-hand and right-hand ambiguities (see [@Grzegorzewski2021]),
++ *VAFmethod* - resampling method which preserves the value, ambiguity and fuzziness (see [@grzegorzewskietal2020]),
++ *dmethod* - resampling method which preserves the left end of the cores and increments (see [@romaniuk_hryniewicz]),
++ *wmethod* - resampling method which uses the special *w density* to "smooth" the output fuzzy value (see [@romaniuk_hryniewicz]).
 
 ## Installation
 
@@ -78,6 +80,11 @@ classicalBootstrap(fuzzyValues)
 # generate the secondary sample using the VA method
 
 VAmethod(fuzzyValues)
+
+
+# generate the secondary sample (6 fuzzy numbers) using the d-method
+
+dmethod(fuzzyValues, b = 6)
 
 
 ```
