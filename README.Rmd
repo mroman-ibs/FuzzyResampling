@@ -17,11 +17,11 @@ knitr::opts_chunk$set(
 # FuzzyResampling
 
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.com/mroman-ibs/FuzzyResampling.svg?branch=master)](https://travis-ci.com/mroman-ibs/FuzzyResampling)
+
 [![R-CMD-check](https://github.com/mroman-ibs/FuzzyResampling/workflows/R-CMD-check/badge.svg)](https://github.com/mroman-ibs/FuzzyResampling/actions)
 <!-- badges: end -->
 
-The goal of FuzzyResampling (R package) is to provide additional resampling procedures, apart from the classical bootstrap (i.e. Efron's
+The goal of FuzzyResampling, a library written in R, is to provide additional resampling procedures, apart from the classical bootstrap (i.e. Efron's
 approach, see [@Efron1994]), for fuzzy data.
 In the classical approach, secondary samples are drawing with replacement from the initial sample.
 Therefore most of these bootstrap samples contain repeated values. Moreover, if the  size of the primary sample is small then all secondary samples consist of only a few distinct values, which is a serious disadvantage.
@@ -48,11 +48,17 @@ The following procedures are available in the library (R language):
 
 ## Installation
 
-You can install the released version of FuzzyResampling with:
+You can install the latest development version of FuzzyResampling with:
 
 ``` r
 library(devtools)
 install_github("mroman-ibs/FuzzyResampling")
+```
+
+You can install the latest stable version from CRAN with:
+
+``` r
+install.packages("FuzzyResampling")
 ```
 
 ## Examples
@@ -73,9 +79,11 @@ fuzzyValues <- matrix(c(0.25,0.5,1,1.25,0.75,1,1.5,2.2,-1,0,0,2),ncol = 4,byrow 
 
 fuzzyValues
 
+
 # generate the secondary sample using the classical approach
 
 classicalBootstrap(fuzzyValues)
+
 
 # generate the secondary sample using the VA method
 

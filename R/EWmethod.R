@@ -35,6 +35,11 @@
 #' left end of the support, left end of the core, right end of the core,
 #' right end of the support.
 #'
+#' @return This function returns matrix with \code{b} rows of double values.
+#' In each row, there is a single resampled fuzzy number.
+#' These fuzzy numbers have the same form as the values from the initial sample depending on the provided parameter \code{increases}.
+#'
+#'
 #' @family resampling functions
 #'
 #' @seealso \code{\link{classicalBootstrap}}, \code{\link{VAmethod}} for the VA method,

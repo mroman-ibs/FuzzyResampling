@@ -19,6 +19,11 @@ right increment of the support. Otherwise, the default value \code{FALSE} is use
 left end of the support, left end of the core, right end of the core,
 right end of the support.}
 }
+\value{
+This function returns matrix with \code{b} rows of double values.
+In each row, there is a single resampled fuzzy number.
+These fuzzy numbers have the same form as the values from the initial sample depending on the provided parameter \code{increases}.
+}
 \description{
 `classicalBootstrap` returns the bootstrapped (secondary) sample based on the initial sample and uses the Efron's (i.e. classical) resampling
 scheme (see (Efron, 1994)).

@@ -6,3 +6,5 @@ references.bib
 README.html
 ^\.travis\.yml$
 ^\.github$
+^CRAN-RELEASE$
+^cran-comments\.md$

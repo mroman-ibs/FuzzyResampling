@@ -5,19 +5,17 @@
 
 <!-- badges: start -->
 
-[![Travis build
-status](https://travis-ci.com/mroman-ibs/FuzzyResampling.svg?branch=master)](https://travis-ci.com/mroman-ibs/FuzzyResampling)
 [![R-CMD-check](https://github.com/mroman-ibs/FuzzyResampling/workflows/R-CMD-check/badge.svg)](https://github.com/mroman-ibs/FuzzyResampling/actions)
 <!-- badges: end -->
 
-The goal of FuzzyResampling (R package) is to provide additional
-resampling procedures, apart from the classical bootstrap (i.e. Efron’s
-approach, see (Efron and Tibshirani 1994)), for fuzzy data. In the
-classical approach, secondary samples are drawing with replacement from
-the initial sample. Therefore most of these bootstrap samples contain
-repeated values. Moreover, if the size of the primary sample is small
-then all secondary samples consist of only a few distinct values, which
-is a serious disadvantage.
+The goal of FuzzyResampling, a library written in R, is to provide
+additional resampling procedures, apart from the classical bootstrap
+(i.e. Efron’s approach, see (Efron and Tibshirani 1994)), for fuzzy
+data. In the classical approach, secondary samples are drawing with
+replacement from the initial sample. Therefore most of these bootstrap
+samples contain repeated values. Moreover, if the size of the primary
+sample is small then all secondary samples consist of only a few
+distinct values, which is a serious disadvantage.
 
 To overcome this problem, special resampling algorithms for fuzzy data
 were introduced (see (Grzegorzewski, Hryniewicz, and Romaniuk 2019,
@@ -54,11 +52,17 @@ The following procedures are available in the library (R language):
 
 ## Installation
 
-You can install the released version of FuzzyResampling with:
+You can install the latest development version of FuzzyResampling with:
 
 ``` r
 library(devtools)
 install_github("mroman-ibs/FuzzyResampling")
+```
+
+You can install the latest stable version from CRAN with:
+
+``` r
+install.packages("FuzzyResampling")
 ```
 
 ## Examples
@@ -81,7 +85,6 @@ fuzzyValues
 #> [1,]  0.25  0.5  1.0 1.25
 #> [2,]  0.75  1.0  1.5 2.20
 #> [3,] -1.00  0.0  0.0 2.00
-
 # generate the secondary sample using the classical approach
 
 classicalBootstrap(fuzzyValues)
@@ -89,7 +92,6 @@ classicalBootstrap(fuzzyValues)
 #> [1,]  0.75    1  1.5  2.2
 #> [2,] -1.00    0  0.0  2.0
 #> [3,]  0.75    1  1.5  2.2
-
 # generate the secondary sample using the VA method
 
 VAmethod(fuzzyValues)
@@ -97,8 +99,6 @@ VAmethod(fuzzyValues)
 #> [1,]  0.9141124  0.9179438  1.7262290 1.747542
 #> [2,] -0.5303703  0.8901852  0.9132088 1.423582
 #> [3,] -0.3356065 -0.3321967 -0.3321967 2.664393
-
-
 # generate the secondary sample (6 fuzzy numbers) using the d-method
 
 dmethod(fuzzyValues, b = 6)
