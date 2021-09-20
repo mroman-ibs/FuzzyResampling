@@ -21,8 +21,7 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/mroman-ibs/FuzzyResampling/workflows/R-CMD-check/badge.svg)](https://github.com/mroman-ibs/FuzzyResampling/actions)
 <!-- badges: end -->
 
-The goal of FuzzyResampling, a library written in R, is to provide additional resampling procedures, apart from the classical bootstrap (i.e. Efron's
-approach, see [@Efron1994]), for fuzzy data.
+The goal of FuzzyResampling, a library written in R, is to provide additional resampling procedures, apart from the classical bootstrap (i.e. Efron's approach, see [@Efron1994]), for fuzzy data.
 In the classical approach, secondary samples are drawing with replacement from the initial sample.
 Therefore most of these bootstrap samples contain repeated values. Moreover, if the  size of the primary sample is small then all secondary samples consist of only a few distinct values, which is a serious disadvantage.
 

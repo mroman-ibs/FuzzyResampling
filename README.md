@@ -85,6 +85,8 @@ fuzzyValues
 #> [1,]  0.25  0.5  1.0 1.25
 #> [2,]  0.75  1.0  1.5 2.20
 #> [3,] -1.00  0.0  0.0 2.00
+
+
 # generate the secondary sample using the classical approach
 
 classicalBootstrap(fuzzyValues)
@@ -92,6 +94,8 @@ classicalBootstrap(fuzzyValues)
 #> [1,]  0.75    1  1.5  2.2
 #> [2,] -1.00    0  0.0  2.0
 #> [3,]  0.75    1  1.5  2.2
+
+
 # generate the secondary sample using the VA method
 
 VAmethod(fuzzyValues)
@@ -99,6 +103,8 @@ VAmethod(fuzzyValues)
 #> [1,]  0.9141124  0.9179438  1.7262290 1.747542
 #> [2,] -0.5303703  0.8901852  0.9132088 1.423582
 #> [3,] -0.3356065 -0.3321967 -0.3321967 2.664393
+
+
 # generate the secondary sample (6 fuzzy numbers) using the d-method
 
 dmethod(fuzzyValues, b = 6)
