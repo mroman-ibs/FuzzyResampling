@@ -14,7 +14,7 @@ If this parameter is not specified, the number of values in the initial sample i
 The parameter should be integer value more than 0.}
 
 \item{increases}{If \code{TRUE} is used, then the initial sample should consist of the fuzzy numbers in the form:
- left increment of the support, left end of the core, right end of the core,
+left increment of the support, left end of the core, right end of the core,
 right increment of the support. Otherwise, the default value \code{FALSE} is used and the fuzzy numbers should be given in the form:
 left end of the support, left end of the core, right end of the core,
 right end of the support.}
@@ -25,16 +25,16 @@ In each row, there is a single resampled fuzzy number.
 These fuzzy numbers have the same form as the values from the initial sample depending on the provided parameter \code{increases}.
 }
 \description{
-`EWmethod` returns the secondary (bootstrapped) sample and uses the resampling
+\code{EWmethod} returns the secondary (bootstrapped) sample and uses the resampling
 scheme which does not change the expected values and widths of the fuzzy variables from
- the initial sample (the EW method, see (Grzegorzewski et al, 2020)).
+the initial sample (the EW method, see (Grzegorzewski et al, 2020)).
 }
 \details{
 The initial sample should consist of triangular or trapezoidal fuzzy numbers, given as a single vector or a whole matrix.
 In each row, there should be a single fuzzy number in one of the forms:
 \enumerate{
- \item left end of the support, left end of the core, right end of the core, right end of the support, or
- \item left increment of the support, left end of the core, right end of the core, right increment of the support.
+\item left end of the support, left end of the core, right end of the core, right end of the support, or
+\item left increment of the support, left end of the core, right end of the core, right increment of the support.
 }
 In this second case, the parameter \code{increases=TRUE} has to be used.
 

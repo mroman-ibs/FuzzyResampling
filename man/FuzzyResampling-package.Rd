@@ -10,6 +10,20 @@ The classical (i.e. Efron's, see Efron and Tibshirani (1994, ISBN:978-0412042317
  The main aim of the algorithms implemented in this package  is to overcome a problem with repetition of a few distinct values and to create fuzzy numbers, which are "similar" (but not the same) to values from the initial sample.
  To do this, different characteristics of triangular/trapezoidal numbers are kept (like the value, the ambiguity, etc., see Grzegorzewski et al. <doi:10.2991/eusflat-19.2019.68>, Grzegorzewski et al. (2020) <doi:10.2991/ijcis.d.201012.003>, Grzegorzewski et al. (2020) <doi:10.34768/amcs-2020-0022>,  Romaniuk and Hryniewicz (2019) <doi:10.1007/s00500-018-3251-5>).
 }
+\section{Resampling procedures}{
+
+The following resampling procedures are available in the package:
+\itemize{
+\item \emph{classicalBootstrap} - classical approach based on Efron's method,
+\item \emph{VAmethod} - resampling method which preserves the value and ambiguity,
+\item \emph{EWmethod} - resampling method which preserves the expected value and width,
+\item \emph{VAAmethod} - resampling method which preserves the value, left-hand and right-hand ambiguities,
+\item \emph{VAFmethod} - resampling method which preserves the value, ambiguity and fuzziness,
+\item \emph{dmethod} - resampling method which preserves the left end of the cores and increments,
+\item \emph{wmethod} - resampling method which uses the special \emph{w density} to "smooth" the output fuzzy value.
+}
+}
+
 \seealso{
 Useful links:
 \itemize{
