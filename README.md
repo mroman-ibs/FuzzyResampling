@@ -25,13 +25,17 @@ values from the initial sample, but not exactly the same. During the
 creation process, some of the characteristics of the initial fuzzy
 values are kept (e.g., the value, the width, etc.). It was shown that
 these algorithms provide serious advantages in some statistical areas
-(like standard error estimation or hyphothesis testing) if they are
+(like standard error estimation or hypothesis testing) if they are
 compared with the classical approach. For detailed information
 concerning the theoretical foundations and practical applications of
 these resampling methods please see the above-mentioned references.
 
 The initial sample (in the form of a vector or a matrix) should consist
 of triangular or trapezoidal fuzzy numbers.
+
+Some additional procedures related to these resampling methods are also
+provided, like calculation of the Bertoluzza et al.’s distance (aka the
+mid/spread distance, see (Bertoluzza 1995)).
 
 The following procedures are available in the library (R language):
 
@@ -48,7 +52,9 @@ The following procedures are available in the library (R language):
     cores and increments (see (Romaniuk and Hryniewicz 2019)),
 -   *wmethod* - resampling method which uses the special *w density* to
     “smooth” the output fuzzy value (see (Romaniuk and
-    Hryniewicz 2019)).
+    Hryniewicz 2019)),
+-   *BertoluzzaDistance* - calculation of the Bertoluzza et al.’s
+    distance (aka the mid/spread distance, see (Bertoluzza 1995)).
 
 ## Installation
 
@@ -126,6 +132,14 @@ dmethod(fuzzyValues, b = 6)
 ## References
 
 <div id="refs" class="references csl-bib-body hanging-indent">
+
+<div id="ref-Bertoluzza1995" class="csl-entry">
+
+Bertoluzza, Corral, Carlo. 1995. “On a New Class of Distances Between
+Fuzzy Numbers.” *Mathware and Soft Computing* 2 (2): 71–84.
+<http://eudml.org/doc/39054>.
+
+</div>
 
 <div id="ref-Efron1994" class="csl-entry">
 

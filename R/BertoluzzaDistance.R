@@ -1,7 +1,7 @@
 #' Calculate Bertoluzza's (mid/spread) distance for triangular and trapezoidal fuzzy numbers
 #'
 #' @description
-#' `BertoluzzaDistance` returns the Bertoulzza et al.'s (aka mid/spread) distance with the given parameter \code{theta}
+#' `BertoluzzaDistance` returns the Bertoulzza et al.'s (aka mid/spread) distance with the given weight \code{theta}
 #'  between two triangular or trapezoidal fuzzy numbers.
 #'
 #' @details
@@ -40,7 +40,7 @@
 #'
 #' # prepare some fuzzy numbers (first type of the initial sample)
 #'
-#' fuzzyValues <- matrix(c(0.5,1,1.4,2,-0.75,0,0.5,0.9),nrow = 2,ncol = 4,byrow = TRUE)
+#' fuzzyValues <- matrix(c(0.25,0.5,1,1.25,0.75,1,1.5,2.2,-1,0,0,2),ncol = 4,byrow = TRUE)
 #'
 #' # calculate the mid/spread distance between the first value
 #' # (from the first row) and the second one (from the second row)
@@ -48,7 +48,7 @@
 #' BertoluzzaDistance(fuzzyValues[1,],fuzzyValues[2,])
 #'
 #' # calculate the mid/spread distance between the first value
-#' # (from the first row) and the both values (from the first and second row)
+#' # (from the first row) and all of the values (from the first to the third row)
 #'
 #' BertoluzzaDistance(fuzzyValues[1,],fuzzyValues)
 #'
@@ -59,7 +59,6 @@
 #' Bertoluzza, C., Corral, N., Salas, A. (1995)
 #' On a new class of distances between fuzzy numbers
 #' Mathware and Soft Computing, 2 (2), pp. 71-84
-#' CRC Press
 #'
 #' @export
 #'

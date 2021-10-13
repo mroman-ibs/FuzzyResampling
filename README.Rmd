@@ -30,10 +30,12 @@ To overcome this problem, special resampling algorithms for fuzzy data were intr
 These methods randomly create values that are "similar" to values from the initial sample, but not exactly the same.
 During the creation process, some of the characteristics of the initial fuzzy values are kept (e.g., the value, the width, etc.).
 It was shown that these algorithms provide serious advantages in some statistical areas (like standard error
-estimation or hyphothesis testing) if they are compared with the classical approach.
+estimation or hypothesis testing) if they are compared with the classical approach.
 For detailed information concerning the theoretical foundations and practical applications of these resampling methods please see the above-mentioned references.
 
 The initial sample (in the form of a vector or a matrix) should consist of triangular or trapezoidal fuzzy numbers.
+
+Some additional procedures related to these resampling methods are also provided, like calculation of the Bertoluzza et al.'s distance (aka the mid/spread distance, see [@Bertoluzza1995]).
 
 The following procedures are available in the library (R language):
 
@@ -43,7 +45,8 @@ The following procedures are available in the library (R language):
 + *VAAmethod* - resampling method which preserves the value, left-hand and right-hand ambiguities (see [@Grzegorzewski2021]),
 + *VAFmethod* - resampling method which preserves the value, ambiguity and fuzziness (see [@grzegorzewskietal2020]),
 + *dmethod* - resampling method which preserves the left end of the cores and increments (see [@romaniuk_hryniewicz]),
-+ *wmethod* - resampling method which uses the special *w density* to "smooth" the output fuzzy value (see [@romaniuk_hryniewicz]).
++ *wmethod* - resampling method which uses the special *w density* to "smooth" the output fuzzy value (see [@romaniuk_hryniewicz]),
++ *BertoluzzaDistance* - calculation of the Bertoluzza et al.'s distance (aka the mid/spread distance, see [@Bertoluzza1995]).
 
 ## Installation
 
@@ -92,6 +95,10 @@ VAmethod(fuzzyValues)
 # generate the secondary sample (6 fuzzy numbers) using the d-method
 
 dmethod(fuzzyValues, b = 6)
+
+
+
+
 
 
 ```
