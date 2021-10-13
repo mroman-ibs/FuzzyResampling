@@ -97,7 +97,10 @@ VAmethod(fuzzyValues)
 dmethod(fuzzyValues, b = 6)
 
 
+# calculate the mid/spread distance between the first value
+# (from the first row) and the second one (from the second row)
 
+BertoluzzaDistance(fuzzyValues[1,],fuzzyValues[2,])
 
 
 

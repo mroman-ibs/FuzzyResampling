@@ -121,6 +121,13 @@ dmethod(fuzzyValues, b = 6)
 #> [4,]  0.75  1.0  1.0 3.00
 #> [5,] -0.25  0.0  0.5 1.20
 #> [6,] -0.50  0.5  1.0 1.25
+
+
+# calculate the mid/spread distance between the first value
+# (from the first row) and the second one (from the second row)
+
+BertoluzzaDistance(fuzzyValues[1,],fuzzyValues[2,])
+#> [1] 0.6204837
 ```
 
 ``` r
