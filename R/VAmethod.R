@@ -57,6 +57,8 @@
 #'
 #' # generate the secondary sample using the VA method
 #'
+#' set.seed(12345)
+#'
 #' VAmethod(fuzzyValues)
 #'
 #' VAmethod(fuzzyValues,b=4)

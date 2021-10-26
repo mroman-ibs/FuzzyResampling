@@ -56,6 +56,8 @@ ncol = 4,byrow = TRUE)
 
 # generate the secondary sample using the d method
 
+set.seed(12345)
+
 dmethod(fuzzyValues)
 
 dmethod(fuzzyValues,b=4)

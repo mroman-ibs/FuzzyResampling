@@ -57,6 +57,8 @@
 #'
 #' # generate the secondary sample using the VAF method
 #'
+#' set.seed(12345)
+#'
 #' VAFmethod(fuzzyValues)
 #'
 #' VAFmethod(fuzzyValues,b=4)

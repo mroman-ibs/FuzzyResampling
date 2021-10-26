@@ -53,6 +53,8 @@ ncol = 4,byrow = TRUE)
 
 # generate the secondary sample using the EW method
 
+set.seed(12345)
+
 EWmethod(fuzzyValues)
 
 EWmethod(fuzzyValues,b=4)

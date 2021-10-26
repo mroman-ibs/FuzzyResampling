@@ -51,6 +51,8 @@ ncol = 4,byrow = TRUE)
 
 # generate bootstrap sample
 
+set.seed(12345)
+
 classicalBootstrap(fuzzyValues)
 
 classicalBootstrap(fuzzyValues,b=4)

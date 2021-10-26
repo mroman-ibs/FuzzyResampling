@@ -304,11 +304,9 @@ is.Fuzzy <- function(fuzzyNumber)
 
 }
 
-#' @importFrom ttutils isInteger
+# checking for correctness of the initial sample
 
-# general checking of correctness of the initial parameters
-
-parameterCheckForResampling <- function(initialSample, b)
+parameterCheckForInitialSample <- function(initialSample)
 {
   # checking the number of columns
 
@@ -333,7 +331,17 @@ parameterCheckForResampling <- function(initialSample, b)
 
 
 
+}
 
+#' @importFrom ttutils isInteger
+
+# general checking of correctness of the initial parameters for resampling
+
+parameterCheckForResampling <- function(initialSample, b)
+{
+  # checking the initial sample
+
+  parameterCheckForInitialSample(initialSample)
 
   # checking b parameter
 
@@ -410,4 +418,38 @@ wFunction <- function(initialValues)
 }
 
 
+# mean for fuzzy number
+
+meanFuzzyNumber <- function(inputSample)
+{
+  # check if we have vector
+
+  if(is.vector(inputSample))
+  {
+
+    return(inputSample)
+
+  } else {
+
+    return(colMeans(inputSample))
+
+  }
+
+
+}
+
+# additional calculations for C test
+
+valueA <- function(x,y, theta)
+{
+  return((BertoluzzaDistance(meanFuzzyNumber(x), meanFuzzyNumber(y), theta))^2)
+}
+
+valueB <- function(x, theta)
+{
+  n <- nrow(x)
+
+  return(n / (n-1) * mean(BertoluzzaDistance(x, meanFuzzyNumber(x), theta)^2))
+
+}
 

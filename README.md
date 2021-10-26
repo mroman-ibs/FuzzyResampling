@@ -92,6 +92,9 @@ fuzzyValues
 #> [2,]  0.75  1.0  1.5 2.20
 #> [3,] -1.00  0.0  0.0 2.00
 
+# seed PRNG
+
+set.seed(12345)
 
 # generate the secondary sample using the classical approach
 
