@@ -35,7 +35,8 @@ For detailed information concerning the theoretical foundations and practical ap
 
 The initial sample (in the form of a vector or a matrix) should consist of triangular or trapezoidal fuzzy numbers.
 
-Some additional procedures related to these resampling methods are also provided, like calculation of the Bertoluzza et al.'s distance (aka the mid/spread distance, see [@Bertoluzza1995]).
+Some additional procedures related to these resampling methods are also provided, like calculation of the Bertoluzza et al.'s distance (aka the mid/spread distance, see [@Bertoluzza1995])
+and estimation of the p-value of the one-sample bootstrapped test for the mean (see [@lubiano2016]).
 
 The following procedures are available in the library (R language):
 
@@ -46,7 +47,8 @@ The following procedures are available in the library (R language):
 + *VAFmethod* - resampling method which preserves the value, ambiguity and fuzziness (see [@grzegorzewskietal2020]),
 + *dmethod* - resampling method which preserves the left end of the cores and increments (see [@romaniuk_hryniewicz]),
 + *wmethod* - resampling method which uses the special *w density* to "smooth" the output fuzzy value (see [@romaniuk_hryniewicz]),
-+ *BertoluzzaDistance* - calculation of the Bertoluzza et al.'s distance (aka the mid/spread distance, see [@Bertoluzza1995]).
++ *BertoluzzaDistance* - calculation of the Bertoluzza et al.'s distance (aka the mid/spread distance, see [@Bertoluzza1995]),
++ *OneSampleCTest* - estimation of the p-value of the one-sample test for the mean (see [@lubiano2016]).
 
 ## Installation
 
@@ -104,6 +106,19 @@ dmethod(fuzzyValues, b = 6)
 # (from the first row) and the second one (from the second row)
 
 BertoluzzaDistance(fuzzyValues[1,],fuzzyValues[2,])
+
+
+# seed PRNG
+
+ set.seed(1234)
+
+# calculate the p-value using the classical (i.e. Efron's) bootstrap
+
+OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5))
+
+# calculate the p-value using the VA resampling method
+
+OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5),resamplingMethod = VAmethod)
 
 
 

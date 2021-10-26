@@ -35,7 +35,9 @@ of triangular or trapezoidal fuzzy numbers.
 
 Some additional procedures related to these resampling methods are also
 provided, like calculation of the Bertoluzza et al.’s distance (aka the
-mid/spread distance, see (Bertoluzza 1995)).
+mid/spread distance, see (Bertoluzza 1995)) and estimation of the
+p-value of the one-sample bootstrapped test for the mean (see (Lubiano
+et al. 2016)).
 
 The following procedures are available in the library (R language):
 
@@ -54,7 +56,9 @@ The following procedures are available in the library (R language):
     “smooth” the output fuzzy value (see (Romaniuk and
     Hryniewicz 2019)),
 -   *BertoluzzaDistance* - calculation of the Bertoluzza et al.’s
-    distance (aka the mid/spread distance, see (Bertoluzza 1995)).
+    distance (aka the mid/spread distance, see (Bertoluzza 1995)),
+-   *OneSampleCTest* - estimation of the p-value of the one-sample test
+    for the mean (see (Lubiano et al. 2016)).
 
 ## Installation
 
@@ -131,6 +135,21 @@ dmethod(fuzzyValues, b = 6)
 
 BertoluzzaDistance(fuzzyValues[1,],fuzzyValues[2,])
 #> [1] 0.6204837
+
+
+# seed PRNG
+
+ set.seed(1234)
+
+# calculate the p-value using the classical (i.e. Efron's) bootstrap
+
+OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5))
+#> [1] 0.82
+
+# calculate the p-value using the VA resampling method
+
+OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5),resamplingMethod = VAmethod)
+#> [1] 0.91
 ```
 
 ``` r
@@ -188,6 +207,15 @@ https://doi.org/<https://doi.org/10.34768/amcs-2020-0022>.
 
 Grzegorzewski, P., and M. Romaniuk. 2021. “Bootstrap Methods for Fuzzy
 Data.”
+
+</div>
+
+<div id="ref-lubiano2016" class="csl-entry">
+
+Lubiano, M. A., M. Montenegro, B. Sinova, S. De la Rosa de Sáa, and M.
+A. Gil. 2016. “Hypothesis Testing for Means in Connection with Fuzzy
+Rating Scale-Based Data: Algorithms and Applications.” *European Journal
+of Operational Research* 251: 918–29.
 
 </div>
 

@@ -12,7 +12,7 @@
 #' }
 #' In this second case, the parameter \code{increases=TRUE} has to be used.
 #'
-#' The procedure uses the resampling method given in the \code{resamplingMethod} parameter to calculate the p-value of the one-sample
+#' The procedure uses the resampling method given in the \code{resamplingMethod} parameter to estimate the p-value of the one-sample
 #' test for the mean (denoted further as the C-test, see Lubiano et al. (2016)).
 #' This test checks the null hypothesis that the Aumann-type mean of the fuzzy numbers is equal to a given fuzzy number \code{mu_0}.
 #'
@@ -20,14 +20,15 @@
 #' @param initialSample The initial sample which consists of triangular or trapezoidal fuzzy numbers.
 #' More than one value can be given in the form of matrix.
 #'
-#' @param mu_0 Triangular or trapezoidal fuzzy number which is used in the null hypothesis of the C-test.
+#' @param mu_0 Triangular or trapezoidal fuzzy number which is used for the null hypothesis of the C-test.
 #'
-#' @param numberOfSamples Number of the bootstrapped samples used to calculate the p-value.
+#' @param numberOfSamples Number of the bootstrapped samples used to estimate the p-value.
 #'
 #' @param resamplingMethod Name of the resampling method, which is used to generate the bootstrapped samples.
+#' For the possible names check the values of \code{resamplingMethods} vector.
 #'
 #'
-#' @param theta The weighting parameter for the mid/spread distance.
+#' @param theta The weighting parameter for the mid/spread distance applied in the C-test.
 #'
 #'
 #' @param increases If \code{TRUE} is used, then the fuzzy numbers should be given in the form:
@@ -74,7 +75,7 @@
 # C bootstrapped test for one mean
 
 OneSampleCTest <- function(initialSample, mu_0,
-                           numberOfSamples = 100, theta = 1/3, resamplingMethod = classicalBootstrap, incresases = FALSE)
+                           numberOfSamples = 100, theta = 1/3, resamplingMethod = classicalBootstrap, increases = FALSE)
 {
 
   # changing possible vector to matrix
@@ -126,7 +127,7 @@ OneSampleCTest <- function(initialSample, mu_0,
 
     # generate bootstrap sample (step 3)
 
-    bootstrapSample <- resamplingMethod(initialSample, n,  incresases)
+    bootstrapSample <- resamplingMethod(initialSample, n,  increases)
 
     # calculate bootstrapped statistics (step 4)
 

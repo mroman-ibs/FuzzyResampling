@@ -10,20 +10,21 @@ OneSampleCTest(
   numberOfSamples = 100,
   theta = 1/3,
   resamplingMethod = classicalBootstrap,
-  incresases = FALSE
+  increases = FALSE
 )
 }
 \arguments{
 \item{initialSample}{The initial sample which consists of triangular or trapezoidal fuzzy numbers.
 More than one value can be given in the form of matrix.}
 
-\item{mu_0}{Triangular or trapezoidal fuzzy number which is used in the null hypothesis of the C-test.}
+\item{mu_0}{Triangular or trapezoidal fuzzy number which is used for the null hypothesis of the C-test.}
 
-\item{numberOfSamples}{Number of the bootstrapped samples used to calculate the p-value.}
+\item{numberOfSamples}{Number of the bootstrapped samples used to estimate the p-value.}
 
-\item{theta}{The weighting parameter for the mid/spread distance.}
+\item{theta}{The weighting parameter for the mid/spread distance applied in the C-test.}
 
-\item{resamplingMethod}{Name of the resampling method, which is used to generate the bootstrapped samples.}
+\item{resamplingMethod}{Name of the resampling method, which is used to generate the bootstrapped samples.
+For the possible names check the values of \code{resamplingMethods} vector.}
 
 \item{increases}{If \code{TRUE} is used, then the fuzzy numbers should be given in the form:
 left increment of the support, left end of the core, right end of the core,
@@ -46,7 +47,7 @@ In each row, there should be a single fuzzy number in one of the forms:
 }
 In this second case, the parameter \code{increases=TRUE} has to be used.
 
-The procedure uses the resampling method given in the \code{resamplingMethod} parameter to calculate the p-value of the one-sample
+The procedure uses the resampling method given in the \code{resamplingMethod} parameter to estimate the p-value of the one-sample
 test for the mean (denoted further as the C-test, see Lubiano et al. (2016)).
 This test checks the null hypothesis that the Aumann-type mean of the fuzzy numbers is equal to a given fuzzy number \code{mu_0}.
 }
