@@ -182,7 +182,7 @@ Bootstrap*. Chapman; Hall/CRC.
 Grzegorzewski, P., O. Hryniewicz, and M. Romaniuk. 2019. “Flexible
 Bootstrap Based on the Canonical Representation of Fuzzy Numbers.” In
 *Proceedings of EUSFLAT 2019*. Atlantis Press.
-https://doi.org/<https://doi.org/10.2991/eusflat-19.2019.68>.
+<https://doi.org/10.2991/eusflat-19.2019.68>.
 
 </div>
 
@@ -190,8 +190,7 @@ https://doi.org/<https://doi.org/10.2991/eusflat-19.2019.68>.
 
 ———. 2020a. “Flexible Bootstrap for Fuzzy Data Based on the Canonical
 Representation.” *International Journal of Computational Intelligence
-Systems* 13: 1650–62.
-https://doi.org/<https://dx.doi.org/10.2991/ijcis.d.201012.003>.
+Systems* 13: 1650–62. <https://doi.org/10.2991/ijcis.d.201012.003>.
 
 </div>
 
@@ -199,7 +198,7 @@ https://doi.org/<https://dx.doi.org/10.2991/ijcis.d.201012.003>.
 
 ———. 2020b. “Flexible Resampling for Fuzzy Data.” *International Journal
 of Applied Mathematics and Computer Science* 30: 281–97.
-https://doi.org/<https://doi.org/10.34768/amcs-2020-0022>.
+<https://doi.org/10.34768/amcs-2020-0022>.
 
 </div>
 
@@ -216,6 +215,7 @@ Lubiano, M. A., M. Montenegro, B. Sinova, S. De la Rosa de Sáa, and M.
 A. Gil. 2016. “Hypothesis Testing for Means in Connection with Fuzzy
 Rating Scale-Based Data: Algorithms and Applications.” *European Journal
 of Operational Research* 251: 918–29.
+<https://doi.org/10.1016/j.ejor.2015.11.016>.
 
 </div>
 
@@ -223,7 +223,7 @@ of Operational Research* 251: 918–29.
 
 Romaniuk, M., and O. Hryniewicz. 2019. “Interval-Based, Nonparametric
 Approach for Resampling of Fuzzy Numbers.” *Soft Computing* 23:
-5883–903. https://doi.org/<https://doi.org/10.1007/s00500-018-3251-5>.
+5883–903. <https://doi.org/10.1007/s00500-018-3251-5>.
 
 </div>
 

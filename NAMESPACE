@@ -3,6 +3,7 @@
 export(BertoluzzaDistance)
 export(EWmethod)
 export(OneSampleCTest)
+export(SEResamplingMean)
 export(VAAmethod)
 export(VAFmethod)
 export(VAmethod)
