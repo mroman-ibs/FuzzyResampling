@@ -150,6 +150,47 @@ OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5))
 
 OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5),resamplingMethod = VAmethod)
 #> [1] 0.91
+
+
+# seed PRNG
+
+set.seed(1234)
+
+# calculate the SE of the mean using the classical (i.e. Efron's) bootstrap
+
+SEResamplingMean(fuzzyValues)
+#> $mean
+#> [1] 0.0075000 0.5100000 0.8416667 1.8413333
+#> 
+#> $SE
+#> [1] 0.2981175
+
+# calculate the SE of the mean using the VA resampling method
+
+SEResamplingMean(fuzzyValues, resamplingMethod = VAmethod)
+#> $mean
+#> [1] -0.2846996  0.5985998  0.8490542  1.7328917
+#> 
+#> $SE
+#> [1] 0.2999322
+
+# calculate the MSE of the given mean using the classical (i.e. Efron's) bootstrap
+
+SEResamplingMean(fuzzyValues, trueMean = c(0,0.5,1,2))
+#> $mean
+#> [1] 0.0 0.5 1.0 2.0
+#> 
+#> $SE
+#> [1] 0.2707535
+
+# calculate the MSE of the given mean using the VA resampling method
+
+SEResamplingMean(fuzzyValues, resamplingMethod = VAmethod, trueMean = c(0,0.5,1,2))
+#> $mean
+#> [1] 0.0 0.5 1.0 2.0
+#> 
+#> $SE
+#> [1] 0.3104324
 ```
 
 ``` r
