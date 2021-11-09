@@ -1,7 +1,7 @@
 Package: FuzzyResampling
 Type: Package
 Title: Resampling Methods for Triangular and Trapezoidal Fuzzy Numbers
-Version: 0.2.2
+Version: 0.2.3
 Authors@R: c(
     person("Maciej", "Romaniuk", email = "mroman@ibspan.waw.pl", role = "cre"),
     person("Przemyslaw", "Grzegorzewski", email = "przemyslaw.grzegorzewski@ibspan.waw.pl", role = "aut"),

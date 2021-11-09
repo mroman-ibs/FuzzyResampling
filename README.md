@@ -19,7 +19,7 @@ distinct values, which is a serious disadvantage.
 
 To overcome this problem, special resampling algorithms for fuzzy data
 were introduced (see (Grzegorzewski, Hryniewicz, and Romaniuk 2019,
-2020a, 2020b; Grzegorzewski and Romaniuk 2021; Romaniuk and Hryniewicz
+2020a, 2020b; Grzegorzewski and Romaniuk 2021a; Romaniuk and Hryniewicz
 2019)). These methods randomly create values that are “similar” to
 values from the initial sample, but not exactly the same. During the
 creation process, some of the characteristics of the initial fuzzy
@@ -35,30 +35,46 @@ of triangular or trapezoidal fuzzy numbers.
 
 Some additional procedures related to these resampling methods are also
 provided, like calculation of the Bertoluzza et al.’s distance (aka the
-mid/spread distance, see (Bertoluzza 1995)) and estimation of the
-p-value of the one-sample bootstrapped test for the mean (see (Lubiano
-et al. 2016)).
+mid/spread distance, see (Bertoluzza 1995)), estimation of the p-value
+of the one-sample bootstrapped test for the mean (see (Lubiano et al.
+2016)), and estimation of the standard error or the mean-squared error
+for the mean (see (Grzegorzewski and Romaniuk 2021b)).
 
 The following procedures are available in the library (R language):
 
--   *classicalBootstrap* - classical approach based on Efron’s method,
--   *VAmethod* - resampling method which preserves the value and
-    ambiguity (see (Grzegorzewski, Hryniewicz, and Romaniuk 2020a)),
--   *EWmethod* - resampling method which preserves the expected value
-    and width (see (Grzegorzewski, Hryniewicz, and Romaniuk 2020b)),
--   *VAAmethod* - resampling method which preserves the value, left-hand
-    and right-hand ambiguities (see (Grzegorzewski and Romaniuk 2021)),
--   *VAFmethod* - resampling method which preserves the value, ambiguity
-    and fuzziness (see (Grzegorzewski, Hryniewicz, and Romaniuk 2020a)),
--   *dmethod* - resampling method which preserves the left end of the
-    cores and increments (see (Romaniuk and Hryniewicz 2019)),
--   *wmethod* - resampling method which uses the special *w density* to
-    “smooth” the output fuzzy value (see (Romaniuk and
-    Hryniewicz 2019)),
--   *BertoluzzaDistance* - calculation of the Bertoluzza et al.’s
-    distance (aka the mid/spread distance, see (Bertoluzza 1995)),
--   *OneSampleCTest* - estimation of the p-value of the one-sample test
-    for the mean (see (Lubiano et al. 2016)).
+-   Resampling procedures:
+
+    -   *classicalBootstrap* - classical approach based on Efron’s
+        method,
+    -   *VAmethod* - resampling method which preserves the value and
+        ambiguity (see (Grzegorzewski, Hryniewicz, and Romaniuk 2020a)),
+    -   *EWmethod* - resampling method which preserves the expected
+        value and width (see (Grzegorzewski, Hryniewicz, and Romaniuk
+        2020b)),
+    -   *VAAmethod* - resampling method which preserves the value,
+        left-hand and right-hand ambiguities (see (Grzegorzewski and
+        Romaniuk 2021a)),
+    -   *VAFmethod* - resampling method which preserves the value,
+        ambiguity and fuzziness (see (Grzegorzewski, Hryniewicz, and
+        Romaniuk 2020a)),
+    -   *dmethod* - resampling method which preserves the left end of
+        the cores and increments (see (Romaniuk and Hryniewicz 2019)),
+    -   *wmethod* - resampling method which uses the special *w density*
+        to “smooth” the output fuzzy value (see (Romaniuk and
+        Hryniewicz 2019)).
+
+-   Applications of the bootstrapped samples:
+
+    -   *OneSampleCTest* - estimation of the p-value of the one-sample
+        test for the mean (see (Lubiano et al. 2016)),
+    -   *SEResamplingMean* - estimation of the standard error or the
+        mean-squared error for the mean (see (Grzegorzewski and Romaniuk
+        2021b)).
+
+-   Additional procedures:
+
+    -   *BertoluzzaDistance* - calculation of the Bertoluzza et al.’s
+        distance (aka the mid/spread distance, see (Bertoluzza 1995)).
 
 ## Installation
 
@@ -245,8 +261,14 @@ of Applied Mathematics and Computer Science* 30: 281–97.
 
 <div id="ref-Grzegorzewski2021" class="csl-entry">
 
-Grzegorzewski, P., and M. Romaniuk. 2021. “Bootstrap Methods for Fuzzy
+Grzegorzewski, P., and M. Romaniuk. 2021a. “Bootstrap Methods for Fuzzy
 Data.”
+
+</div>
+
+<div id="ref-grzegorzewski2021" class="csl-entry">
+
+———. 2021b. “Epistemic Bootstrap for Fuzzy Data.” In. (submitted).
 
 </div>
 

@@ -1,3 +1,8 @@
+# FuzzyResampling 0.2.3
+
+* Updated README file.
+
+
 # FuzzyResampling 0.2.2
 
 * Added function to estimate the SE/MSE of the mean for the bootstrapped samples.
