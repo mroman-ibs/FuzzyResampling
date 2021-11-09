@@ -1,3 +1,8 @@
+# FuzzyResampling 0.2.4
+
+* Added tests for parameters of SEResamplingMean function.
+
+
 # FuzzyResampling 0.2.3
 
 * Updated README file.

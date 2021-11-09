@@ -36,6 +36,7 @@ right end of the support.}
 \value{
 This function returns list of two double values: \code{mean} which is equal to the overall mean (if the SE is calculated) or
 \code{trueMean} parameter (if the MSE is calculated), \code{SE} which is equal to the estimated SE/MSE of the mean.
+The output \code{mean} value consists of four values.
 }
 \description{
 \code{SEResamplingMean} estimates the standard error (SE) or the mean-squared error (MSE) for the mean if the sample is bootstrapped using

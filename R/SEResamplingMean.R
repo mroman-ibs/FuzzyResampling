@@ -47,6 +47,7 @@
 #'
 #' @return This function returns list of two double values: \code{mean} which is equal to the overall mean (if the SE is calculated) or
 #' \code{trueMean} parameter (if the MSE is calculated), \code{SE} which is equal to the estimated SE/MSE of the mean.
+#' The output \code{mean} value consists of four values.
 #'
 #'
 #' @examples
@@ -99,6 +100,39 @@
 SEResamplingMean <- function(initialSample, resamplingMethod=classicalBootstrap, repetitions = 100, trueMean = NA, theta = 1/3,
                              increases = FALSE)
 {
+
+  # changing possible vector to matrix
+
+  if(is.vector(initialSample))
+  {
+    initialSample <- matrix(initialSample,nrow=1)
+  }
+
+  # check the initial sample
+
+  parameterCheckForInitialSample(initialSample)
+
+  # checking repetitions parameter
+
+  if(!isInteger(repetitions) | repetitions <= 1)
+  {
+    stop("Parameter repetitions should be integer value and > 1")
+  }
+
+  # checking theta parameter
+
+  if(!is.double(theta) | theta < 0)
+  {
+    stop("Parameter theta should be double value and > 0")
+  }
+
+  # checking resamplingMethod parameter
+
+  if(!(deparse(substitute(resamplingMethod)) %in% resamplingMethods))
+  {
+    stop("Parameter resamplingMethod should be a proper name of the resampling method")
+  }
+
 
   # matrix for means
 
