@@ -48,6 +48,10 @@ The following procedures are available in the library (R language):
   + *dmethod* - resampling method which preserves the left end of the cores and increments (see [@romaniuk_hryniewicz]),
   + *wmethod* - resampling method which uses the special *w density* to "smooth" the output fuzzy value (see [@romaniuk_hryniewicz]).
   
++ Random generation of the initial samples:  
+  + *GeneratorNU* - generation of the initial sample using the normal and uniform distributions (see [@grzegorzewskietal2020]),
+  + *GeneratorNExpUU* - generation of the initial sample using the normal, exponential and uniform distributions (see [@grzegorzewskietal2020]).
+  
 + Applications of the bootstrapped samples:  
 
   + *OneSampleCTest* - estimation of the p-value of the one-sample test for the mean (see [@lubiano2016]),
@@ -116,7 +120,7 @@ BertoluzzaDistance(fuzzyValues[1,],fuzzyValues[2,])
 
 # seed PRNG
 
- set.seed(1234)
+set.seed(1234)
 
 # calculate the p-value using the classical (i.e. Efron's) bootstrap
 

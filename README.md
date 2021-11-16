@@ -63,6 +63,15 @@ The following procedures are available in the library (R language):
         to “smooth” the output fuzzy value (see (Romaniuk and
         Hryniewicz 2019)).
 
+-   Random generation of the initial samples:
+
+    -   *GeneratorNU* - generation of the initial sample using the
+        normal and uniform distributions (see (Grzegorzewski,
+        Hryniewicz, and Romaniuk 2020a)),
+    -   *GeneratorNExpUU* - generation of the initial sample using the
+        normal, exponential and uniform distributions (see
+        (Grzegorzewski, Hryniewicz, and Romaniuk 2020a)).
+
 -   Applications of the bootstrapped samples:
 
     -   *OneSampleCTest* - estimation of the p-value of the one-sample
@@ -155,7 +164,7 @@ BertoluzzaDistance(fuzzyValues[1,],fuzzyValues[2,])
 
 # seed PRNG
 
- set.seed(1234)
+set.seed(1234)
 
 # calculate the p-value using the classical (i.e. Efron's) bootstrap
 

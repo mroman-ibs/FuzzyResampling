@@ -22,8 +22,8 @@ For the possible names check the values of \code{resamplingMethods} vector.}
 
 \item{repetitions}{Number of the secondary samples which are created using the selected resampling method.}
 
-\item{trueMean}{If the value is given, then the mean-squared error is calculated for this value and the means of the bootstrapped
-samples. Otherwise, the standard error is calculated based on the overall mean of the secondary samples.}
+\item{trueMean}{If the value is given, then the mean-squared error (MSE) is calculated for this value and the means of the bootstrapped
+samples. Otherwise, the standard error (SE) is calculated based on the overall mean of the secondary samples.}
 
 \item{theta}{The weighting parameter for the mid/spread distance applied to calculate the SE/MSE.}
 
@@ -34,12 +34,16 @@ left end of the support, left end of the core, right end of the core,
 right end of the support.}
 }
 \value{
-This function returns list of two double values: \code{mean} which is equal to the overall mean (if the SE is calculated) or
-\code{trueMean} parameter (if the MSE is calculated), \code{SE} which is equal to the estimated SE/MSE of the mean.
-The output \code{mean} value consists of four values.
+This function returns list of two double values:
+\enumerate{
+\item \code{mean} which is equal to the overall mean (if the SE is calculated) or
+\code{trueMean} parameter (if the MSE is calculated),
+\item \code{SE} which is equal to the estimated SE/MSE of the mean.
+}
+The output \code{mean} consists of four values which create the trapezoidal fuzzy number.
 }
 \description{
-\code{SEResamplingMean} estimates the standard error (SE) or the mean-squared error (MSE) for the mean if the sample is bootstrapped using
+\code{SEResamplingMean} estimates the standard error (SE) or the mean-squared error (MSE) for the mean while the sample is bootstrapped using
 one of the applied resampling methods.
 }
 \details{
@@ -51,14 +55,15 @@ In each row, there should be a single fuzzy number in one of the forms:
 }
 In this second case, the parameter \code{increases=TRUE} has to be used.
 
-The procedure uses the resampling method given in the \code{resamplingMethod} parameter to create the secondary (bootstrapped)
+The procedure uses the resampling method given in \code{resamplingMethod} parameter to create the secondary (bootstrapped)
 samples.
-Then the mean (trapezoidal fuzzy number) is calculated for each new sample.
-If the parameter \code{trueMean} is given, then the mean-squared error (MSE) between this true value and each of the sample means
+Then the mean (in the form of trapezoidal fuzzy number) is calculated for each new sample.
+If the parameter \code{trueMean} is set, then the mean-squared error (MSE) between this true value and each of the sample means
 is estimated using the Bertoulzza et al.'s (aka mid/spread) distance (with the given weight \code{theta},
 see Bertoluzza et al. (1995)).
-Otherwise, the overall mean is calculated, and the standard error (SE) is obtained between the overall mean
-and each of the sample means based on the Bertoulzza et al.'s distance (see Grzegorzewski, Romaniuk (2021)).
+Otherwise, the overall mean is calculated, and the standard error (SE) is estimated based on the overall mean
+and each of the sample means.
+In this case the Bertoulzza et al.'s distance (see Grzegorzewski, Romaniuk (2021)) is also applied.
 }
 \examples{
 

@@ -1,3 +1,8 @@
+# FuzzyResampling 0.3.0
+
+* Added procedures to generate the initial samples.
+
+
 # FuzzyResampling 0.2.4
 
 * Added tests for parameters of SEResamplingMean function.

@@ -77,7 +77,7 @@ Flexible resampling for fuzzy data based on the canonical representation
 International Journal of Computational Intelligence Systems, 13 (1), pp. 1650-1662
 }
 \seealso{
-@seealso \code{\link{classicalBootstrap}},
+\code{\link{classicalBootstrap}},
 \code{\link{EWmethod}} for the EW method, \code{\link{VAFmethod}} for the VAF method,
 \code{\link{VAAmethod}} for the VAA method, \code{\link{dmethod}} for the d method, \code{\link{wmethod}} for the w method
 
