@@ -151,7 +151,13 @@ SEResamplingMean(fuzzyValues, trueMean = c(0,0.5,1,2))
 
 SEResamplingMean(fuzzyValues, resamplingMethod = VAmethod, trueMean = c(0,0.5,1,2))
 
+# seed PRNG
 
+set.seed(1234)
+
+# generate 10 trapezoidal fuzzy numbers using the normal and uniform distributions
+
+GeneratorNU(10, 0,1,1,2)
 
 ```
 
