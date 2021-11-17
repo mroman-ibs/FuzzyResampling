@@ -254,7 +254,7 @@ GeneratorNU(10, 0,1,1,2)
 
 Bertoluzza, Corral, Carlo. 1995. “On a New Class of Distances Between
 Fuzzy Numbers.” *Mathware and Soft Computing* 2 (2): 71–84.
-<http://eudml.org/doc/39054>.
+<https://eudml.org/doc/39054>.
 
 </div>
 
