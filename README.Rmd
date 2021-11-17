@@ -36,6 +36,7 @@ For detailed information concerning the theoretical foundations and practical ap
 The initial sample (in the form of a vector or a matrix) should consist of triangular or trapezoidal fuzzy numbers.
 
 Some additional procedures related to these resampling methods are also provided, like calculation of the Bertoluzza et al.'s distance (aka the mid/spread distance, see [@Bertoluzza1995]), estimation of the p-value of the one-sample bootstrapped test for the mean (see [@lubiano2016]), and estimation of the standard error or the mean-squared error for the mean (see [@grzegorzewski2021]).
+Additionally, there are procedures which randomly generate trapezoidal fuzzy numbers using some well-known statistical distributions (see [@grzegorzewskietal2020]).
 
 The following procedures are available in the library (R language):
 

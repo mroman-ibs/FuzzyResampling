@@ -63,7 +63,7 @@
 #' @references
 #'
 #' Lubiano, M.A., Montenegro M., Sinova, B., de Saa, S.R., Gil, M.A. (2016)
-#' Hyphotesis testing for means in connection with fuzzy rating scale-based data: algorithms and applications
+#' Hypothesis testing for means in connection with fuzzy rating scale-based data: algorithms and applications
 #' European Journal of Operational Research, 251, pp. 918-929
 #'
 #' @export

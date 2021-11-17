@@ -38,7 +38,10 @@ provided, like calculation of the Bertoluzza et al.’s distance (aka the
 mid/spread distance, see (Bertoluzza 1995)), estimation of the p-value
 of the one-sample bootstrapped test for the mean (see (Lubiano et al.
 2016)), and estimation of the standard error or the mean-squared error
-for the mean (see (Grzegorzewski and Romaniuk 2021b)).
+for the mean (see (Grzegorzewski and Romaniuk 2021b)). Additionally,
+there are procedures which randomly generate trapezoidal fuzzy numbers
+using some well-known statistical distributions (see (Grzegorzewski,
+Hryniewicz, and Romaniuk 2020a)).
 
 The following procedures are available in the library (R language):
 
