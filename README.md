@@ -35,15 +35,15 @@ of triangular or trapezoidal fuzzy numbers.
 
 Some additional procedures related to these resampling methods are also
 provided, like calculation of the Bertoluzza et al.’s distance (aka the
-mid/spread distance, see (Bertoluzza 1995)), estimation of the p-value
-of the one-sample bootstrapped test for the mean (see (Lubiano et al.
-2016)), and estimation of the standard error or the mean-squared error
-for the mean (see (Grzegorzewski and Romaniuk 2021b)). Additionally,
-there are procedures which randomly generate trapezoidal fuzzy numbers
-using some well-known statistical distributions (see (Grzegorzewski,
-Hryniewicz, and Romaniuk 2020a)).
+mid/spread distance, see (Bertoluzza, Corral, and Salas 1995)),
+estimation of the p-value of the one-sample bootstrapped test for the
+mean (see (Lubiano et al. 2016)), and estimation of the standard error
+or the mean-squared error for the mean (see (Grzegorzewski and Romaniuk
+2021b)). Additionally, there are procedures which randomly generate
+trapezoidal fuzzy numbers using some well-known statistical
+distributions (see (Grzegorzewski, Hryniewicz, and Romaniuk 2020a)).
 
-The following procedures are available in the library (R language):
+The following procedures are available in the library:
 
 -   Resampling procedures:
 
@@ -86,7 +86,8 @@ The following procedures are available in the library (R language):
 -   Additional procedures:
 
     -   *BertoluzzaDistance* - calculation of the Bertoluzza et al.’s
-        distance (aka the mid/spread distance, see (Bertoluzza 1995)).
+        distance (aka the mid/spread distance, see (Bertoluzza, Corral,
+        and Salas 1995)).
 
 ## Installation
 
@@ -191,7 +192,7 @@ SEResamplingMean(fuzzyValues)
 #> [1] 0.0075000 0.5100000 0.8416667 1.8413333
 #> 
 #> $SE
-#> [1] 0.2981175
+#> [1] 0.05487521
 
 # calculate the SE of the mean using the VA resampling method
 
@@ -200,7 +201,7 @@ SEResamplingMean(fuzzyValues, resamplingMethod = VAmethod)
 #> [1] -0.2846996  0.5985998  0.8490542  1.7328917
 #> 
 #> $SE
-#> [1] 0.2999322
+#> [1] 0.05504196
 
 # calculate the MSE of the given mean using the classical (i.e. Efron's) bootstrap
 
@@ -209,7 +210,7 @@ SEResamplingMean(fuzzyValues, trueMean = c(0,0.5,1,2))
 #> [1] 0.0 0.5 1.0 2.0
 #> 
 #> $SE
-#> [1] 0.2707535
+#> [1] 0.02721175
 
 # calculate the MSE of the given mean using the VA resampling method
 
@@ -218,7 +219,7 @@ SEResamplingMean(fuzzyValues, resamplingMethod = VAmethod, trueMean = c(0,0.5,1,
 #> [1] 0.0 0.5 1.0 2.0
 #> 
 #> $SE
-#> [1] 0.3104324
+#> [1] 0.03119963
 
 # seed PRNG
 
@@ -252,9 +253,9 @@ GeneratorNU(10, 0,1,1,2)
 
 <div id="ref-Bertoluzza1995" class="csl-entry">
 
-Bertoluzza, Corral, Carlo. 1995. “On a New Class of Distances Between
-Fuzzy Numbers.” *Mathware and Soft Computing* 2 (2): 71–84.
-<https://eudml.org/doc/39054>.
+Bertoluzza, Carlo, Norberto Corral, and Antonia Salas. 1995. “On a New
+Class of Distances Between Fuzzy Numbers.” *Mathware and Soft Computing*
+2 (2): 71–84. <https://eudml.org/doc/39054>.
 
 </div>
 
