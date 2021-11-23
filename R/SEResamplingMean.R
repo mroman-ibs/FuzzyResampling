@@ -178,6 +178,8 @@ SEResamplingMean <- function(initialSample, resamplingMethod=classicalBootstrap,
 
     SEmean <- sum((BertoluzzaDistance(meanMatrix, overallMean, theta))^2)
 
+    SEmean <- sqrt(SEmean / (repetitions - 1))
+
   } else {
 
     # calculate MSE
@@ -185,6 +187,8 @@ SEResamplingMean <- function(initialSample, resamplingMethod=classicalBootstrap,
     SEmean <- sum((BertoluzzaDistance(meanMatrix, trueMean, theta))^2)
 
     overallMean <- trueMean
+
+    SEmean <- SEmean / (repetitions - 1)
 
   }
 

@@ -1,3 +1,8 @@
+# FuzzyResampling 0.3.1
+
+* Fixed problem with the formula for MSE.
+
+
 # FuzzyResampling 0.3.0
 
 * Added procedures to generate the initial samples.
