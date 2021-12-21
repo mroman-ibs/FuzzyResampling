@@ -11,6 +11,8 @@ The classical (i.e. Efron's, see Efron and Tibshirani (1994, ISBN:978-0412042317
 \section{Resampling procedures}{
 
 The following resampling procedures are available in the package:
+
+The following procedures are available in the library:
 \itemize{
 \item \emph{classicalBootstrap} - classical approach based on Efron's method,
 \item \emph{VAmethod} - resampling method which preserves the value and ambiguity,
@@ -18,7 +20,13 @@ The following resampling procedures are available in the package:
 \item \emph{VAAmethod} - resampling method which preserves the value, left-hand and right-hand ambiguities,
 \item \emph{VAFmethod} - resampling method which preserves the value, ambiguity and fuzziness,
 \item \emph{dmethod} - resampling method which preserves the left end of the cores and increments,
-\item \emph{wmethod} - resampling method which uses the special \emph{w density} to "smooth" the output fuzzy value.
+\item \emph{wmethod} - resampling method which uses the special \emph{w density} to "smooth" the output fuzzy value,
+\item \emph{GeneratorNU} - generation of the initial sample using the normal and uniform distributions,
+\item \emph{GeneratorNExpUU} - generation of the initial sample using the normal, exponential and uniform distributions,
+\item \emph{OneSampleCTest} - estimation of the p-value of the one-sample test for the mean,
+\item \emph{TwoSampleCTest} - estimation of the p-value of the two-sample test for the mean,
+\item \emph{SEResamplingMean} - estimation of the standard error or the mean-squared error for the mean,
+\item \emph{BertoluzzaDistance} - calculation of the Bertoluzza et al.'s distance (aka the mid/spread distance.
 }
 }
 

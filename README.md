@@ -173,6 +173,7 @@ BertoluzzaDistance(fuzzyValues[1,],fuzzyValues[2,])
 set.seed(1234)
 
 # calculate the p-value using the classical (i.e. Efron's) bootstrap
+# for the one-sample test for the mean
 
 OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5))
 #> [1] 0.82
@@ -181,6 +182,9 @@ OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5))
 
 OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5),resamplingMethod = VAmethod)
 #> [1] 0.91
+
+
+
 
 
 # seed PRNG
