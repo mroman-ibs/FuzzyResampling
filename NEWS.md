@@ -1,3 +1,8 @@
+# FuzzyResampling 0.4.0
+
+* Added function to calculate the p-value of the two-sample bootstrapped test for the mean (the C-test).
+
+
 # FuzzyResampling 0.3.1
 
 * Fixed problem with the formula for MSE.

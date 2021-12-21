@@ -1,7 +1,7 @@
-#' Calculate p-value of the one-sample test for the mean
+#' Calculate p-value of the two-sample test for the mean
 #'
 #' @description
-#' `OneSampleCTest` returns the p-value of the one-sample test for the mean using the resampling method.
+#' `TwoSampleCTest` returns the p-value of the two-sample test for the mean using the resampling method.
 #'
 #' @details
 #' The input fuzzy values should be triangular or trapezoidal fuzzy numbers, given as a single vector or a whole matrix.
@@ -12,15 +12,17 @@
 #' }
 #' In this second case, the parameter \code{increases=TRUE} has to be used.
 #'
-#' The procedure uses the resampling method given in the \code{resamplingMethod} parameter to estimate the p-value of the one-sample
-#' test for the mean (denoted further as the one-sample C-test, see Lubiano et al. (2016)).
-#' This test checks the null hypothesis that the Aumann-type mean of the fuzzy numbers is equal to a given fuzzy number \code{mu_0}.
+#' The procedure uses the resampling method given in the \code{resamplingMethod} parameter to estimate the p-value of the two-sample
+#' test for the mean (denoted further as the two-sample C-test, see Lubiano et al. (2016)).
+#' This test checks the null hypothesis that the Aumann-type means of two fuzzy samples are equal.
 #'
 #'
-#' @param initialSample The initial sample which consists of triangular or trapezoidal fuzzy numbers.
+#' @param initialSample1 The first initial sample which consists of triangular or trapezoidal fuzzy numbers.
 #' More than one value can be given in the form of matrix.
 #'
-#' @param mu_0 Triangular or trapezoidal fuzzy number which is used for the null hypothesis of the C-test.
+#' @param initialSample2 The second initial sample which consists of triangular or trapezoidal fuzzy numbers.
+#' More than one value can be given in the form of matrix.
+#'
 #'
 #' @param numberOfSamples Number of the bootstrapped samples used to estimate the p-value.
 #'
@@ -37,17 +39,18 @@
 #' left end of the support, left end of the core, right end of the core,
 #' right end of the support.
 #'
-#' @return This function returns double value which is equal to the p-value of the one-sample C-test.
+#' @return This function returns double value which is equal to the p-value of the two-sample C-test.
 #'
-#' @family bootstrapped version of test
 #'
-#' @seealso \code{\link{TwoSampleCTest}} for the two-sample C-test
-
 #' @examples
 #'
 #' # prepare some fuzzy numbers (first type of the initial sample)
 #'
 #' fuzzyValues <- matrix(c(0.25,0.5,1,1.25,0.75,1,1.5,2.2,-1,0,0,2),ncol = 4,byrow = TRUE)
+#'
+#' # prepare the slightly shifted second sample
+#'
+#' fuzzyValuesShift <- fuzzyValues + 0.5
 #'
 #' # seed PRNG
 #'
@@ -55,11 +58,11 @@
 #'
 #' # calculate the p-value using the classical (i.e. Efron's) bootstrap
 #'
-#' OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5))
+#' TwoSampleCTest(fuzzyValues, fuzzyValuesShift)
 #'
 #' # calculate the p-value using the VA resampling method
 #'
-#' OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5),resamplingMethod = VAmethod)
+#' TwoSampleCTest(fuzzyValues, fuzzyValuesShift, resamplingMethod = VAmethod)
 #'
 
 #'
@@ -71,26 +74,38 @@
 #'
 #' @export
 #'
+#' @family bootstrapped version of test
+#'
+#' @seealso \code{\link{OneSampleCTest}} for the one-sample C-test
 
 
+# C bootstrapped test for two means
 
-
-# C bootstrapped test for one mean
-
-OneSampleCTest <- function(initialSample, mu_0,
-                           numberOfSamples = 100, theta = 1/3, resamplingMethod = classicalBootstrap, increases = FALSE)
+TwoSampleCTest <- function(initialSample1, initialSample2,
+                           numberOfSamples = 10, theta = 1/3, resamplingMethod = classicalBootstrap, increases = FALSE)
 {
 
   # changing possible vector to matrix
 
-  if(is.vector(initialSample))
+  if(is.vector(initialSample1))
   {
-    initialSample <- matrix(initialSample,nrow=1)
+    initialSample <- matrix(initialSample1,nrow=1)
+  }
+
+  # changing possible vector to matrix
+
+  if(is.vector(initialSample2))
+  {
+    initialSample <- matrix(initialSample2,nrow=1)
   }
 
   # check the initial sample
 
-  parameterCheckForInitialSample(initialSample)
+  parameterCheckForInitialSample(initialSample1)
+
+  # check the initial sample
+
+  parameterCheckForInitialSample(initialSample2)
 
   # checking numberOfSamples parameter
 
@@ -116,9 +131,18 @@ OneSampleCTest <- function(initialSample, mu_0,
 
   # calculation of C test without bootstrap (step 1)
 
-  n <- nrow(initialSample)
+  n1 <- nrow(initialSample1)
 
-  standardStatistics <- valueA(initialSample, mu_0, theta) / valueB(initialSample, theta)
+  n2 <- nrow(initialSample2)
+
+  standardStatistics <- valueA(initialSample1, initialSample2, theta) /
+    (valueB(initialSample1, theta) / n1 + valueB(initialSample2, theta) / n2)
+
+  # change the initial samples according to H_0
+
+  initialSample1Changed <- sweep(initialSample1,2, meanFuzzyNumber(initialSample2),"+")
+
+  initialSample2Changed <- sweep(initialSample2,2, meanFuzzyNumber(initialSample1),"+")
 
   # prepare vector
 
@@ -130,12 +154,14 @@ OneSampleCTest <- function(initialSample, mu_0,
 
     # generate bootstrap sample (step 3)
 
-    bootstrapSample <- resamplingMethod(initialSample, n,  increases)
+    bootstrapSample1 <- resamplingMethod(initialSample1Changed, n1,  increases)
+
+    bootstrapSample2 <- resamplingMethod(initialSample2Changed, n2,  increases)
 
     # calculate bootstrapped statistics (step 4)
 
-    bootstrappedStatistics[i] <- valueA(bootstrapSample, initialSample, theta) /
-      valueB(bootstrapSample, theta)
+    bootstrappedStatistics[i] <- valueA(bootstrapSample1, bootstrapSample2, theta) /
+      (valueB(bootstrapSample1, theta) / n1 + valueB(bootstrapSample2, theta) / n2)
 
     # setTxtProgressBar(pb, i)
 
@@ -143,12 +169,12 @@ OneSampleCTest <- function(initialSample, mu_0,
 
   # cat("\n")
 
-  # cat("standardStatistics: ", standardStatistics, ", bootstrappedStatistics: ", bootstrappedStatistics, "\n")
-
   # calculate p-value
 
   pvalue <- mean(standardStatistics < bootstrappedStatistics)
 
   return(pvalue)
 }
+
+
 

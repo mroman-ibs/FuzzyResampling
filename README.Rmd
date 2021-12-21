@@ -56,6 +56,7 @@ The following procedures are available in the library:
 + Applications of the bootstrapped samples:  
 
   + *OneSampleCTest* - estimation of the p-value of the one-sample test for the mean (see [@lubiano2016]),
+  + *TwoSampleCTest* - estimation of the p-value of the two-sample test for the mean (see [@lubiano2016]),
   + *SEResamplingMean* - estimation of the standard error or the mean-squared error for the mean (see [@grzegorzewski2021]).
 
 + Additional procedures:
