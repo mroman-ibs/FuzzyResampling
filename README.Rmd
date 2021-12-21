@@ -133,7 +133,18 @@ OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5))
 
 OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5),resamplingMethod = VAmethod)
 
+# seed PRNG
 
+set.seed(1234)
+
+# calculate the p-value using the classical (i.e. Efron's) bootstrap
+# for the two-sample test for the mean
+
+TwoSampleCTest(fuzzyValues, fuzzyValues+0.1)
+
+# calculate the p-value using the VA resampling method
+
+TwoSampleCTest(fuzzyValues, fuzzyValues+0.1,resamplingMethod = VAmethod)
 
 
 
