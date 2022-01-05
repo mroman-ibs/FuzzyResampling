@@ -7,7 +7,7 @@
 TwoSampleCTest(
   initialSample1,
   initialSample2,
-  numberOfSamples = 10,
+  numberOfSamples = 100,
   theta = 1/3,
   resamplingMethod = classicalBootstrap,
   increases = FALSE
