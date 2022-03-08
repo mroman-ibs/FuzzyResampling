@@ -27,7 +27,7 @@ These fuzzy numbers have the same form as the values from the initial sample dep
 \description{
 \code{VAAmethod} returns the secondary (bootstrapped) sample and uses the resampling
 scheme which does not change the values, left-hand and right-hand ambiguities of the fuzzy variables from
-the initial sample (the VAA method, see (Grzegorzewski and Romaniuk, 2021)).
+the initial sample (the VAA method, see (Grzegorzewski and Romaniuk, 2022)).
 }
 \details{
 The initial sample should consist of triangular or trapezoidal fuzzy numbers, given as a single vector or a whole matrix.
@@ -72,9 +72,10 @@ VAAmethod(fuzzyValuesInc,b=4,increases = TRUE)
 
 }
 \references{
-Grzegorzewski, P., Romaniuk, M. (2021)
+Grzegorzewski, P., Romaniuk, M. (2022)
 Bootstrap methods for fuzzy data
-(to be published)
+Uncertainty and Imprecision in Decision Making and Decision Support: New Advances, Challenges, and Perspectives, pp. 28-47
+Springer
 }
 \seealso{
 @seealso \code{\link{classicalBootstrap}},

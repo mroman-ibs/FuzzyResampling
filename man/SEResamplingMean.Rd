@@ -98,7 +98,8 @@ Bertoluzza, C., Corral, N., Salas, A. (1995)
 On a new class of distances between fuzzy numbers
 Mathware and Soft Computing, 2 (2), pp. 71-84
 
-Grzegorzewski, P., Romaniuk, M. (2021)
+Grzegorzewski, P., Romaniuk, M. (2022)
 Bootstrap methods for fuzzy data
-(to be published)
+Uncertainty and Imprecision in Decision Making and Decision Support: New Advances, Challenges, and Perspectives, pp. 28-47
+Springer
 }

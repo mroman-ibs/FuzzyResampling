@@ -19,7 +19,7 @@ distinct values, which is a serious disadvantage.
 
 To overcome this problem, special resampling algorithms for fuzzy data
 were introduced (see (Grzegorzewski, Hryniewicz, and Romaniuk 2019,
-2020a, 2020b; Grzegorzewski and Romaniuk 2021a; Romaniuk and Hryniewicz
+2020a, 2020b; Grzegorzewski and Romaniuk 2022; Romaniuk and Hryniewicz
 2019)). These methods randomly create values that are “similar” to
 values from the initial sample, but not exactly the same. During the
 creation process, some of the characteristics of the initial fuzzy
@@ -39,7 +39,7 @@ mid/spread distance, see (Bertoluzza, Corral, and Salas 1995)),
 estimation of the p-value of the one-sample bootstrapped test for the
 mean (see (Lubiano et al. 2016)), and estimation of the standard error
 or the mean-squared error for the mean (see (Grzegorzewski and Romaniuk
-2021b)). Additionally, there are procedures which randomly generate
+2021)). Additionally, there are procedures which randomly generate
 trapezoidal fuzzy numbers using some well-known statistical
 distributions (see (Grzegorzewski, Hryniewicz, and Romaniuk 2020a)).
 
@@ -56,7 +56,7 @@ The following procedures are available in the library:
         2020b)),
     -   *VAAmethod* - resampling method which preserves the value,
         left-hand and right-hand ambiguities (see (Grzegorzewski and
-        Romaniuk 2021a)),
+        Romaniuk 2022)),
     -   *VAFmethod* - resampling method which preserves the value,
         ambiguity and fuzziness (see (Grzegorzewski, Hryniewicz, and
         Romaniuk 2020a)),
@@ -82,8 +82,8 @@ The following procedures are available in the library:
     -   *TwoSampleCTest* - estimation of the p-value of the two-sample
         test for the mean (see (Lubiano et al. 2016)),
     -   *SEResamplingMean* - estimation of the standard error or the
-        mean-squared error for the mean (see (Grzegorzewski and Romaniuk
-        2021b)).
+        mean-squared error for the mean (see (Grzegorzewski and
+        Romaniuk 2021)).
 
 -   Additional procedures:
 
@@ -310,16 +310,22 @@ of Applied Mathematics and Computer Science* 30: 281–97.
 
 </div>
 
-<div id="ref-Grzegorzewski2021" class="csl-entry">
+<div id="ref-grzegorzewski2021" class="csl-entry">
 
-Grzegorzewski, P., and M. Romaniuk. 2021a. “Bootstrap Methods for Fuzzy
-Data.”
+Grzegorzewski, P., and M. Romaniuk. 2021. “Epistemic Bootstrap for Fuzzy
+Data.” In *Joint Proceedings of IFSA-EUSFLAT-AGOP 2021 Conferences*,
+538–45. Atlantis Press.
 
 </div>
 
-<div id="ref-grzegorzewski2021" class="csl-entry">
+<div id="ref-GrzegorzewskiRom2021" class="csl-entry">
 
-———. 2021b. “Epistemic Bootstrap for Fuzzy Data.” In. (submitted).
+———. 2022. “Bootstrap Methods for Fuzzy Data.” In *Uncertainty and
+Imprecision in Decision Making and Decision Support: New Advances,
+Challenges, and Perspectives*, edited by Krassimir T. Atanassov, Vassia
+Atanassova, Janusz Kacprzyk, Andrzej Kałuszko, Maciej Krawczak, Jan W.
+Owsiński, Sotir S. Sotirov, Evdokia Sotirova, Eulalia Szmidt, and
+Sławomir Zadrożny, 28–47. Cham: Springer International Publishing.
 
 </div>
 

@@ -3,7 +3,7 @@
 #' @description
 #' `VAAmethod` returns the secondary (bootstrapped) sample and uses the resampling
 #' scheme which does not change the values, left-hand and right-hand ambiguities of the fuzzy variables from
-#'  the initial sample (the VAA method, see (Grzegorzewski and Romaniuk, 2021)).
+#'  the initial sample (the VAA method, see (Grzegorzewski and Romaniuk, 2022)).
 #'
 #'
 #' @details
@@ -76,9 +76,10 @@
 #'
 #' @references
 #'
-#' Grzegorzewski, P., Romaniuk, M. (2021)
+#' Grzegorzewski, P., Romaniuk, M. (2022)
 #' Bootstrap methods for fuzzy data
-#' (to be published)
+#' Uncertainty and Imprecision in Decision Making and Decision Support: New Advances, Challenges, and Perspectives, pp. 28-47
+#' Springer
 #'
 #' @export
 #'
