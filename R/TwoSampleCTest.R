@@ -109,7 +109,7 @@ TwoSampleCTest <- function(initialSample1, initialSample2,
 
   # checking numberOfSamples parameter
 
-  if(!isInteger(numberOfSamples) | numberOfSamples <= 1)
+  if(!ifInteger(numberOfSamples) | numberOfSamples <= 1)
   {
     stop("Parameter numberOfSamples should be integer value and > 1")
   }

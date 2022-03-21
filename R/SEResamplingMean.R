@@ -120,7 +120,7 @@ SEResamplingMean <- function(initialSample, resamplingMethod=classicalBootstrap,
 
   # checking repetitions parameter
 
-  if(!isInteger(repetitions) | repetitions <= 1)
+  if(!ifInteger(repetitions) | repetitions <= 1)
   {
     stop("Parameter repetitions should be integer value and > 1")
   }
