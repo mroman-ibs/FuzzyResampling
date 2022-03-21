@@ -1,3 +1,8 @@
+# FuzzyResampling 0.4.2
+
+* Dropped strong dependency with ttutils package.
+
+
 # FuzzyResampling 0.4.1
 
 * Added some references.

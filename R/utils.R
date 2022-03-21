@@ -333,7 +333,24 @@ parameterCheckForInitialSample <- function(initialSample)
 
 }
 
-#' @importFrom ttutils isInteger
+
+# function to check if the parameter is given by the integer
+
+ifInteger <- function(x)
+{
+  if(is.numeric(x))
+  {
+    test <- all.equal(x, as.integer(x), check.attributes = FALSE)
+
+    if(test == TRUE)
+    { return(TRUE) }
+    else { return(FALSE) }
+  }
+
+  else { return(FALSE) }
+}
+
+
 
 # general checking of correctness of the initial parameters for resampling
 
@@ -345,7 +362,7 @@ parameterCheckForResampling <- function(initialSample, b)
 
   # checking b parameter
 
-  if(!isInteger(b) | b <= 0)
+  if(!ifInteger(b) | b <= 0)
   {
     stop("Parameter b should be integer value and > 0")
   }

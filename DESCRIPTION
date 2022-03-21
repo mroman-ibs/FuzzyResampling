@@ -1,7 +1,7 @@
 Package: FuzzyResampling
 Type: Package
 Title: Resampling Methods for Triangular and Trapezoidal Fuzzy Numbers
-Version: 0.4.1
+Version: 0.4.2
 Authors@R: c(
     person("Maciej", "Romaniuk", email = "mroman@ibspan.waw.pl", role = "cre"),
     person("Przemyslaw", "Grzegorzewski", email = "przemyslaw.grzegorzewski@ibspan.waw.pl", role = "aut"),
@@ -14,8 +14,7 @@ Description: The classical (i.e. Efron's, see Efron and Tibshirani (1994, ISBN:9
  like calculation of the Bertoluzza et al.'s distance (aka the mid/spread distance, see Bertoluzza et al. (1995) "On a new class of distances between fuzzy numbers")
  and estimation of the p-value of the one-sample bootstrapped test for the mean (see Lubiano et al. (2016, <doi:10.1016/j.ejor.2015.11.016>)).
  Additionally, there are procedures which randomly generate trapezoidal fuzzy numbers using some well-known statistical distributions.
-Imports: ttutils,
- stats
+Imports: stats
 URL: https://github.com/mroman-ibs/FuzzyResampling
 BugReports: https://github.com/mroman-ibs/FuzzyResampling/issues
 License: GPL-3
