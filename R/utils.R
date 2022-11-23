@@ -2,7 +2,7 @@
 # left increment of the support, left end of the core, right end of the core, right increment of the support
 
 
-transformToIncreases <- function(inputFuzzyNumbers)
+TransformToIncreases <- function(inputFuzzyNumbers)
 {
   # check if this is not single value
 
@@ -32,7 +32,7 @@ transformToIncreases <- function(inputFuzzyNumbers)
 # to matrix of fuzzy numbers
 
 
-transformFromIncreases <- function(inputFuzzyNumbers)
+TransformFromIncreases <- function(inputFuzzyNumbers)
 {
   # check if this is not single value
 
@@ -59,7 +59,7 @@ transformFromIncreases <- function(inputFuzzyNumbers)
 # transform matrix with fuzzy numbers to matrix with:
 # mid the core, half increment of the core, left increment of the support, right increment of the support
 
-transformToSpreads <- function(inputFuzzyNumbers)
+TransformToSpreads <- function(inputFuzzyNumbers)
 {
   # check if this is not single value
 
@@ -92,7 +92,7 @@ transformToSpreads <- function(inputFuzzyNumbers)
 
 
 
-transformIncreasesToSpreads <- function(inputFuzzyNumbers)
+TransformIncreasesToSpreads <- function(inputFuzzyNumbers)
 {
   # check if this is not single value
 
@@ -122,7 +122,7 @@ transformIncreasesToSpreads <- function(inputFuzzyNumbers)
 # mid of the core, spread of the core, mid of the support, spread of the support
 
 
-transformToMidSpreads <- function(inputFuzzyNumbers)
+TransformToMidSpreads <- function(inputFuzzyNumbers)
 {
   # check if this is not single value
 
@@ -153,7 +153,7 @@ transformToMidSpreads <- function(inputFuzzyNumbers)
 # to matrix with fuzzy numbers
 
 
-transformFromSpreads <- function(inputSpreads)
+TransformFromSpreads <- function(inputSpreads)
 {
 
   # check if this is not single value
@@ -183,7 +183,7 @@ transformFromSpreads <- function(inputSpreads)
 # left increment of the support, left end of the core, increment of the core, increment of the right support
 
 
-transformToAllSpreads <- function(inputSpreads)
+TransformToAllSpreads <- function(inputSpreads)
 {
 
   # check if this is not single value
@@ -212,9 +212,9 @@ transformToAllSpreads <- function(inputSpreads)
 
 # calculate value of fuzzy number
 
-calculateValue <- function(fuzzyNumber)
+CalculateValue <- function(fuzzyNumber)
 {
-  spreads <- transformToSpreads(fuzzyNumber)
+  spreads <- TransformToSpreads(fuzzyNumber)
 
   output <- spreads[,1] + (spreads[,4] - spreads[,3]) / 6
 
@@ -224,9 +224,9 @@ calculateValue <- function(fuzzyNumber)
 
 # calculate fuzziness of fuzzy number
 
-calculateFuzziness <- function(fuzzyNumber)
+CalculateFuzziness <- function(fuzzyNumber)
 {
-  spreads <- transformToSpreads(fuzzyNumber)
+  spreads <- TransformToSpreads(fuzzyNumber)
 
   output <- (spreads[,4] + spreads[,3]) / 4
 
@@ -236,9 +236,9 @@ calculateFuzziness <- function(fuzzyNumber)
 
 # calculate left-hand ambiguity
 
-calculateAmbiguityL <- function(fuzzyNumber)
+CalculateAmbiguityL <- function(fuzzyNumber)
 {
-  spreads <- transformToSpreads(fuzzyNumber)
+  spreads <- TransformToSpreads(fuzzyNumber)
 
   output <- spreads[,2] / 2 + spreads[,3] / 6
 
@@ -248,9 +248,9 @@ calculateAmbiguityL <- function(fuzzyNumber)
 
 # calculate right-hand ambiguity
 
-calculateAmbiguityU <- function(fuzzyNumber)
+CalculateAmbiguityU <- function(fuzzyNumber)
 {
-  spreads <- transformToSpreads(fuzzyNumber)
+  spreads <- TransformToSpreads(fuzzyNumber)
 
   output <- spreads[,2] / 2+ spreads[,4] / 6
 
@@ -260,9 +260,9 @@ calculateAmbiguityU <- function(fuzzyNumber)
 
 # calculate ambiguity of fuzzy number
 
-calculateAmbiguity <- function(fuzzyNumber)
+CalculateAmbiguity <- function(fuzzyNumber)
 {
-  spreads <- transformToSpreads(fuzzyNumber)
+  spreads <- TransformToSpreads(fuzzyNumber)
 
   output <- spreads[,2] + (spreads[,3] + spreads[,4]) / 6
 
@@ -272,7 +272,7 @@ calculateAmbiguity <- function(fuzzyNumber)
 
 # check if the initial value is triangular fuzzy number
 
-is.Triangular <- function(fuzzyNumber)
+IsTriangular <- function(fuzzyNumber)
 {
   if(fuzzyNumber[2]==fuzzyNumber[3])
   {
@@ -287,7 +287,7 @@ is.Triangular <- function(fuzzyNumber)
 
 # check if the initial value is correct fuzzy number
 
-is.Fuzzy <- function(fuzzyNumber)
+IsFuzzy <- function(fuzzyNumber)
 {
 
   if((fuzzyNumber[1] <= fuzzyNumber[2]) & (fuzzyNumber[2] <= fuzzyNumber[3]) & (fuzzyNumber[3] <= fuzzyNumber[4]))
@@ -306,7 +306,7 @@ is.Fuzzy <- function(fuzzyNumber)
 
 # checking for correctness of the initial sample
 
-parameterCheckForInitialSample <- function(initialSample)
+ParameterCheckForInitialSample <- function(initialSample)
 {
   # checking the number of columns
 
@@ -336,7 +336,7 @@ parameterCheckForInitialSample <- function(initialSample)
 
 # function to check if the parameter is given by the integer
 
-ifInteger <- function(x)
+IfInteger <- function(x)
 {
   if(is.numeric(x))
   {
@@ -354,15 +354,15 @@ ifInteger <- function(x)
 
 # general checking of correctness of the initial parameters for resampling
 
-parameterCheckForResampling <- function(initialSample, b)
+ParameterCheckForResampling <- function(initialSample, b)
 {
   # checking the initial sample
 
-  parameterCheckForInitialSample(initialSample)
+  ParameterCheckForInitialSample(initialSample)
 
   # checking b parameter
 
-  if(!ifInteger(b) | b <= 0)
+  if(!IfInteger(b) | b <= 0)
   {
     stop("Parameter b should be integer value and > 0")
   }
@@ -372,9 +372,9 @@ parameterCheckForResampling <- function(initialSample, b)
 
 # calculate expected value of fuzzy number
 
-calculateExpValue <- function(fuzzyNumber)
+CalculateExpValue <- function(fuzzyNumber)
 {
-  spreads <- transformToSpreads(fuzzyNumber)
+  spreads <- TransformToSpreads(fuzzyNumber)
 
   output <- spreads[,1] + (spreads[,4] - spreads[,3]) / 4
 
@@ -384,9 +384,9 @@ calculateExpValue <- function(fuzzyNumber)
 
 # calculate width of fuzzy number
 
-calculateWidth <- function(fuzzyNumber)
+CalculateWidth <- function(fuzzyNumber)
 {
-  spreads <- transformToSpreads(fuzzyNumber)
+  spreads <- TransformToSpreads(fuzzyNumber)
 
   output <- spreads[,2] + (spreads[,4] + spreads[,3]) / 4
 
@@ -396,7 +396,7 @@ calculateWidth <- function(fuzzyNumber)
 
 # calculate w density for w-method
 
-wFunction <- function(initialValues)
+WFunction <- function(initialValues)
 {
   m <- length(initialValues)
 
@@ -437,7 +437,7 @@ wFunction <- function(initialValues)
 
 # mean for fuzzy number
 
-meanFuzzyNumber <- function(inputSample)
+MeanFuzzyNumber <- function(inputSample)
 {
   # check if we have vector
 
@@ -457,16 +457,16 @@ meanFuzzyNumber <- function(inputSample)
 
 # additional calculations for C test
 
-valueA <- function(x,y, theta)
+ValueA <- function(x,y, theta)
 {
-  return((BertoluzzaDistance(meanFuzzyNumber(x), meanFuzzyNumber(y), theta))^2)
+  return((BertoluzzaDistance(MeanFuzzyNumber(x), MeanFuzzyNumber(y), theta))^2)
 }
 
-valueB <- function(x, theta)
+ValueB <- function(x, theta)
 {
   n <- nrow(x)
 
-  return(n / (n-1) * mean(BertoluzzaDistance(x, meanFuzzyNumber(x), theta)^2))
+  return(n / (n-1) * mean(BertoluzzaDistance(x, MeanFuzzyNumber(x), theta)^2))
 
 }
 

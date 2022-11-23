@@ -45,51 +45,47 @@ distributions (see (Grzegorzewski, Hryniewicz, and Romaniuk 2020a)).
 
 The following procedures are available in the library:
 
--   Resampling procedures:
+- Resampling procedures:
 
-    -   *classicalBootstrap* - classical approach based on Efron’s
-        method,
-    -   *VAmethod* - resampling method which preserves the value and
-        ambiguity (see (Grzegorzewski, Hryniewicz, and Romaniuk 2020a)),
-    -   *EWmethod* - resampling method which preserves the expected
-        value and width (see (Grzegorzewski, Hryniewicz, and Romaniuk
-        2020b)),
-    -   *VAAmethod* - resampling method which preserves the value,
-        left-hand and right-hand ambiguities (see (Grzegorzewski and
-        Romaniuk 2022)),
-    -   *VAFmethod* - resampling method which preserves the value,
-        ambiguity and fuzziness (see (Grzegorzewski, Hryniewicz, and
-        Romaniuk 2020a)),
-    -   *dmethod* - resampling method which preserves the left end of
-        the cores and increments (see (Romaniuk and Hryniewicz 2019)),
-    -   *wmethod* - resampling method which uses the special *w density*
-        to “smooth” the output fuzzy value (see (Romaniuk and
-        Hryniewicz 2019)).
+  - *ClassicalBootstrap* - classical approach based on Efron’s method,
+  - *VAMethod* - resampling method which preserves the value and
+    ambiguity (see (Grzegorzewski, Hryniewicz, and Romaniuk 2020a)),
+  - *EWMethod* - resampling method which preserves the expected value
+    and width (see (Grzegorzewski, Hryniewicz, and Romaniuk 2020b)),
+  - *VAAMethod* - resampling method which preserves the value, left-hand
+    and right-hand ambiguities (see (Grzegorzewski and Romaniuk 2022)),
+  - *VAFMethod* - resampling method which preserves the value, ambiguity
+    and fuzziness (see (Grzegorzewski, Hryniewicz, and Romaniuk 2020a)),
+  - *DMethod* - resampling method which preserves the left end of the
+    cores and increments (see (Romaniuk and Hryniewicz 2019)),
+  - *WMethod* - resampling method which uses the special *w density* to
+    “smooth” the output fuzzy value (see (Romaniuk and Hryniewicz
+    2019)).
 
--   Random generation of the initial samples:
+- Random generation of the initial samples:
 
-    -   *GeneratorNU* - generation of the initial sample using the
-        normal and uniform distributions (see (Grzegorzewski,
-        Hryniewicz, and Romaniuk 2020a)),
-    -   *GeneratorNExpUU* - generation of the initial sample using the
-        normal, exponential and uniform distributions (see
-        (Grzegorzewski, Hryniewicz, and Romaniuk 2020a)).
+  - *GeneratorNU* - generation of the initial sample using the normal
+    and uniform distributions (see (Grzegorzewski, Hryniewicz, and
+    Romaniuk 2020a)),
+  - *GeneratorNExpUU* - generation of the initial sample using the
+    normal, exponential and uniform distributions (see (Grzegorzewski,
+    Hryniewicz, and Romaniuk 2020a)).
 
--   Applications of the bootstrapped samples:
+- Applications of the bootstrapped samples:
 
-    -   *OneSampleCTest* - estimation of the p-value of the one-sample
-        test for the mean (see (Lubiano et al. 2016)),
-    -   *TwoSampleCTest* - estimation of the p-value of the two-sample
-        test for the mean (see (Lubiano et al. 2016)),
-    -   *SEResamplingMean* - estimation of the standard error or the
-        mean-squared error for the mean (see (Grzegorzewski and
-        Romaniuk 2021)).
+  - *OneSampleCTest* - estimation of the p-value of the one-sample test
+    for the mean (see (Lubiano et al. 2016)),
+  - *TwoSampleCTest* - estimation of the p-value of the two-sample test
+    for the mean (see (Lubiano et al. 2016)),
+  - *SEResamplingMean* - estimation of the standard error or the
+    mean-squared error for the mean (see (Grzegorzewski and Romaniuk
+    2021)).
 
--   Additional procedures:
+- Additional procedures:
 
-    -   *BertoluzzaDistance* - calculation of the Bertoluzza et al.’s
-        distance (aka the mid/spread distance, see (Bertoluzza, Corral,
-        and Salas 1995)).
+  - *BertoluzzaDistance* - calculation of the Bertoluzza et al.’s
+    distance (aka the mid/spread distance, see (Bertoluzza, Corral, and
+    Salas 1995)).
 
 ## Installation
 
@@ -133,7 +129,7 @@ set.seed(12345)
 
 # generate the secondary sample using the classical approach
 
-classicalBootstrap(fuzzyValues)
+ClassicalBootstrap(fuzzyValues)
 #>       [,1] [,2] [,3] [,4]
 #> [1,]  0.75    1  1.5  2.2
 #> [2,] -1.00    0  0.0  2.0
@@ -142,7 +138,7 @@ classicalBootstrap(fuzzyValues)
 
 # generate the secondary sample using the VA method
 
-VAmethod(fuzzyValues)
+VAMethod(fuzzyValues)
 #>            [,1]       [,2]       [,3]     [,4]
 #> [1,]  0.9141124  0.9179438  1.7262290 1.747542
 #> [2,] -0.5303703  0.8901852  0.9132088 1.423582
@@ -151,7 +147,7 @@ VAmethod(fuzzyValues)
 
 # generate the secondary sample (6 fuzzy numbers) using the d-method
 
-dmethod(fuzzyValues, b = 6)
+DMethod(fuzzyValues, b = 6)
 #>       [,1] [,2] [,3] [,4]
 #> [1,]  0.75  1.0  1.5 3.50
 #> [2,]  0.00  1.0  1.5 1.75
@@ -180,7 +176,7 @@ OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5))
 
 # calculate the p-value using the VA resampling method
 
-OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5),resamplingMethod = VAmethod)
+OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5),resamplingMethod = VAMethod)
 #> [1] 0.91
 
 # seed PRNG
@@ -191,12 +187,12 @@ set.seed(1234)
 # for the two-sample test for the mean
 
 TwoSampleCTest(fuzzyValues, fuzzyValues+0.1)
-#> [1] 0.8
+#> [1] 0.86
 
 # calculate the p-value using the VA resampling method
 
-TwoSampleCTest(fuzzyValues, fuzzyValues+0.1,resamplingMethod = VAmethod)
-#> [1] 1
+TwoSampleCTest(fuzzyValues, fuzzyValues+0.1,resamplingMethod = VAMethod)
+#> [1] 0.95
 
 
 
@@ -215,7 +211,7 @@ SEResamplingMean(fuzzyValues)
 
 # calculate the SE of the mean using the VA resampling method
 
-SEResamplingMean(fuzzyValues, resamplingMethod = VAmethod)
+SEResamplingMean(fuzzyValues, resamplingMethod = VAMethod)
 #> $mean
 #> [1] -0.2846996  0.5985998  0.8490542  1.7328917
 #> 
@@ -233,7 +229,7 @@ SEResamplingMean(fuzzyValues, trueMean = c(0,0.5,1,2))
 
 # calculate the MSE of the given mean using the VA resampling method
 
-SEResamplingMean(fuzzyValues, resamplingMethod = VAmethod, trueMean = c(0,0.5,1,2))
+SEResamplingMean(fuzzyValues, resamplingMethod = VAMethod, trueMean = c(0,0.5,1,2))
 #> $mean
 #> [1] 0.0 0.5 1.0 2.0
 #> 
@@ -263,7 +259,7 @@ GeneratorNU(10, 0,1,1,2)
 ``` r
 # help concerning the VA method
 
-?VAmethod
+?VAMethod
 ```
 
 ## References

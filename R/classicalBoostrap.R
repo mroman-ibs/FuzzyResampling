@@ -1,7 +1,7 @@
 #' Classical bootstrap procedure for triangular and trapezoidal fuzzy numbers
 #'
 #' @description
-#' `classicalBootstrap` returns the bootstrapped (secondary) sample based on the initial sample and uses the Efron's (i.e. classical) resampling
+#' `ClassicalBootstrap` returns the bootstrapped (secondary) sample based on the initial sample and uses the Efron's (i.e. classical) resampling
 #' scheme (see (Efron, 1994)).
 #'
 #' @details
@@ -38,9 +38,9 @@
 #'
 #' @family resampling functions
 #'
-#' @seealso \code{\link{VAmethod}} for the VA method,
-#' \code{\link{EWmethod}} for the EW method, \code{\link{VAFmethod}} for the VAF method,
-#' \code{\link{VAAmethod}} for the VAA method, \code{\link{dmethod}} for the d method, \code{\link{wmethod}} for the w method
+#' @seealso \code{\link{VAMethod}} for the VA method,
+#' \code{\link{EWMethod}} for the EW method, \code{\link{VAFMethod}} for the VAF method,
+#' \code{\link{VAAMethod}} for the VAA method, \code{\link{DMethod}} for the d method, \code{\link{WMethod}} for the w method
 #'
 #' @importFrom stats runif
 #'
@@ -55,9 +55,9 @@
 #'
 #' set.seed(12345)
 #'
-#' classicalBootstrap(fuzzyValues)
+#' ClassicalBootstrap(fuzzyValues)
 #'
-#' classicalBootstrap(fuzzyValues,b=4)
+#' ClassicalBootstrap(fuzzyValues,b=4)
 #'
 #' # prepare some fuzzy numbers (second type of the initial sample)
 #'
@@ -66,9 +66,9 @@
 #'
 #' # generate bootstrap sample
 #'
-#' classicalBootstrap(fuzzyValuesInc,increases = TRUE)
+#' ClassicalBootstrap(fuzzyValuesInc,increases = TRUE)
 #'
-#' classicalBootstrap(fuzzyValuesInc,b=4,increases = TRUE)
+#' ClassicalBootstrap(fuzzyValuesInc,b=4,increases = TRUE)
 #'
 #' @references
 #'
@@ -82,7 +82,7 @@
 # classical bootstrap
 
 
-classicalBootstrap <- function(initialSample, b = n, increases = FALSE)
+ClassicalBootstrap <- function(initialSample, b = n, increases = FALSE)
 {
   # changing possible vector to matrix
 
@@ -91,24 +91,29 @@ classicalBootstrap <- function(initialSample, b = n, increases = FALSE)
     initialSample <- matrix(initialSample,nrow=1)
   }
 
+  ParameterCheckForInitialSample(initialSample)
+
   # setting n
 
   n <- nrow(initialSample)
 
-  # checking parameters
+  # checking b parameter
 
-  parameterCheckForResampling(initialSample,b)
+  if(!IfInteger(b) | b <= 0)
+  {
+    stop("Parameter b should be integer value and > 0")
+  }
 
   # check form of the initial sample
 
   if(increases)
   {
-    initialSample <- transformFromIncreases(initialSample)
+    initialSample <- TransformFromIncreases(initialSample)
   }
 
   # checking consistency of fuzzy numbers
 
-  if(!all(apply(initialSample, 1, is.Fuzzy)))
+  if(!all(apply(initialSample, 1, IsFuzzy)))
   {
     stop("Some values in  initial sample are not correct fuzzy numbers")
   }
@@ -125,7 +130,7 @@ classicalBootstrap <- function(initialSample, b = n, increases = FALSE)
 
   if(increases)
   {
-    outputSample <- transformToIncreases(outputSample)
+    outputSample <- TransformToIncreases(outputSample)
   }
 
   return(outputSample)

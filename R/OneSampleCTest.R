@@ -59,7 +59,7 @@
 #'
 #' # calculate the p-value using the VA resampling method
 #'
-#' OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5),resamplingMethod = VAmethod)
+#' OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5),resamplingMethod = VAMethod)
 #'
 
 #'
@@ -78,7 +78,7 @@
 # C bootstrapped test for one mean
 
 OneSampleCTest <- function(initialSample, mu_0,
-                           numberOfSamples = 100, theta = 1/3, resamplingMethod = classicalBootstrap, increases = FALSE)
+                           numberOfSamples = 100, theta = 1/3, resamplingMethod = ClassicalBootstrap, increases = FALSE)
 {
 
   # changing possible vector to matrix
@@ -90,11 +90,11 @@ OneSampleCTest <- function(initialSample, mu_0,
 
   # check the initial sample
 
-  parameterCheckForInitialSample(initialSample)
+  ParameterCheckForInitialSample(initialSample)
 
   # checking numberOfSamples parameter
 
-  if(!ifInteger(numberOfSamples) | numberOfSamples <= 1)
+  if(!IfInteger(numberOfSamples) | numberOfSamples <= 1)
   {
     stop("Parameter numberOfSamples should be integer value and > 1")
   }
@@ -118,7 +118,7 @@ OneSampleCTest <- function(initialSample, mu_0,
 
   n <- nrow(initialSample)
 
-  standardStatistics <- valueA(initialSample, mu_0, theta) / valueB(initialSample, theta)
+  standardStatistics <- ValueA(initialSample, mu_0, theta) / ValueB(initialSample, theta)
 
   # prepare vector
 
@@ -134,8 +134,8 @@ OneSampleCTest <- function(initialSample, mu_0,
 
     # calculate bootstrapped statistics (step 4)
 
-    bootstrappedStatistics[i] <- valueA(bootstrapSample, initialSample, theta) /
-      valueB(bootstrapSample, theta)
+    bootstrappedStatistics[i] <- ValueA(bootstrapSample, initialSample, theta) /
+      ValueB(bootstrapSample, theta)
 
     # setTxtProgressBar(pb, i)
 

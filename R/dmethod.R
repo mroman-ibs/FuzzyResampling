@@ -1,7 +1,7 @@
 #' d method for resampling triangular and trapezoidal fuzzy numbers
 #'
 #' @description
-#' `dmethod` returns the secondary (bootstrapped) sample and uses the resampling
+#' `DMethod` returns the secondary (bootstrapped) sample and uses the resampling
 #' scheme which does not change the left end of the cores and increments (i.e. length of the core,
 #'  left and right increment of the support) of the fuzzy variables from
 #'  the initial sample (the d method, see (Romaniuk and Hryniewicz, 2019)).
@@ -46,9 +46,9 @@
 #'
 #' @family resampling functions
 #'
-#' @seealso @seealso \code{\link{classicalBootstrap}},
-#' \code{\link{EWmethod}} for the EW method, \code{\link{VAFmethod}} for the VAF method,
-#' \code{\link{VAAmethod}} for the VAA method, \code{\link{wmethod}} for the w method
+#' @seealso @seealso \code{\link{ClassicalBootstrap}},
+#' \code{\link{EWMethod}} for the EW method, \code{\link{VAFMethod}} for the VAF method,
+#' \code{\link{VAAMethod}} for the VAA method, \code{\link{WMethod}} for the w method
 #'
 #' @importFrom stats runif
 #'
@@ -63,9 +63,9 @@
 #'
 #' set.seed(12345)
 #'
-#' dmethod(fuzzyValues)
+#' DMethod(fuzzyValues)
 #'
-#' dmethod(fuzzyValues,b=4)
+#' DMethod(fuzzyValues,b=4)
 #'
 #' # prepare some fuzzy numbers (second type of the initial sample)
 #'
@@ -74,9 +74,9 @@
 #'
 #' # generate the secondary sample using the d method
 #'
-#' dmethod(fuzzyValuesInc,increases = TRUE)
+#' DMethod(fuzzyValuesInc,increases = TRUE)
 #'
-#' dmethod(fuzzyValuesInc,b=4,increases = TRUE)
+#' DMethod(fuzzyValuesInc,b=4,increases = TRUE)
 #'
 #' @references
 #'
@@ -93,7 +93,7 @@
 
 # d resampling method
 
-dmethod <- function(initialSample, b = n, increases = FALSE)
+DMethod <- function(initialSample, b = n, increases = FALSE)
 {
   # changing possible vector to matrix
 
@@ -102,32 +102,37 @@ dmethod <- function(initialSample, b = n, increases = FALSE)
     initialSample <- matrix(initialSample,nrow=1)
   }
 
+  ParameterCheckForInitialSample(initialSample)
+
   # setting n
 
   n <- nrow(initialSample)
 
-  # checking parameters
+  # checking b parameter
 
-  parameterCheckForResampling(initialSample,b)
+  if(!IfInteger(b) | b <= 0)
+  {
+    stop("Parameter b should be integer value and > 0")
+  }
 
 
   # check form of the initial sample
 
   if(increases)
   {
-    initialSample <- transformFromIncreases(initialSample)
+    initialSample <- TransformFromIncreases(initialSample)
   }
 
   # checking consistency of fuzzy numbers
 
-  if(!all(apply(initialSample, 1, is.Fuzzy)))
+  if(!all(apply(initialSample, 1, IsFuzzy)))
   {
     stop("Some values in  initial sample are not correct fuzzy numbers")
   }
 
   # calculate ends and increaments
 
-  spreads <- transformToAllSpreads(initialSample)
+  spreads <- TransformToAllSpreads(initialSample)
 
   # cat("spreads:\n")
   # print(spreads)
@@ -152,7 +157,7 @@ dmethod <- function(initialSample, b = n, increases = FALSE)
 
   if(increases)
   {
-    outputSample <- transformToIncreases(outputSample)
+    outputSample <- TransformToIncreases(outputSample)
   }
 
   return(outputSample)

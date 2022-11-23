@@ -1,7 +1,7 @@
 #' V(alue)A(mbiguity) resampling method for triangular and trapezoidal fuzzy numbers
 #'
 #' @description
-#' `VAmethod` returns the secondary (bootstrapped) sample and uses the resampling
+#' `VAMethod` returns the secondary (bootstrapped) sample and uses the resampling
 #' scheme which does not change the values and ambiguities of the fuzzy variables from
 #'  the initial sample (the VA method, see (Grzegorzewski et al, 2020)).
 #'
@@ -42,9 +42,9 @@
 #'
 #' @family resampling functions
 #'
-#' @seealso @seealso \code{\link{classicalBootstrap}},
-#' \code{\link{EWmethod}} for the EW method, \code{\link{VAFmethod}} for the VAF method,
-#' \code{\link{VAAmethod}} for the VAA method, \code{\link{dmethod}} for the d method, \code{\link{wmethod}} for the w method
+#' @seealso @seealso \code{\link{ClassicalBootstrap}},
+#' \code{\link{EWMethod}} for the EW method, \code{\link{VAFMethod}} for the VAF method,
+#' \code{\link{VAAMethod}} for the VAA method, \code{\link{DMethod}} for the d method, \code{\link{WMethod}} for the w method
 #'
 #' @importFrom stats runif
 #'
@@ -59,9 +59,9 @@
 #'
 #' set.seed(12345)
 #'
-#' VAmethod(fuzzyValues)
+#' VAMethod(fuzzyValues)
 #'
-#' VAmethod(fuzzyValues,b=4)
+#' VAMethod(fuzzyValues,b=4)
 #'
 #' # prepare some fuzzy numbers (second type of the initial sample)
 #'
@@ -70,9 +70,9 @@
 #'
 #' # generate the secondary sample using the VA method
 #'
-#' VAmethod(fuzzyValuesInc,increases = TRUE)
+#' VAMethod(fuzzyValuesInc,increases = TRUE)
 #'
-#' VAmethod(fuzzyValuesInc,b=4,increases = TRUE)
+#' VAMethod(fuzzyValuesInc,b=4,increases = TRUE)
 #'
 #' @references
 #'
@@ -87,7 +87,7 @@
 
 # VA resampling method
 
-VAmethod <- function(initialSample, b = n, increases = FALSE)
+VAMethod <- function(initialSample, b = n, increases = FALSE)
 {
 
 
@@ -98,33 +98,38 @@ VAmethod <- function(initialSample, b = n, increases = FALSE)
     initialSample <- matrix(initialSample,nrow=1)
   }
 
+  ParameterCheckForInitialSample(initialSample)
+
   # setting n
 
   n <- nrow(initialSample)
 
-  # checking parameters
+  # checking b parameter
 
-  parameterCheckForResampling(initialSample,b)
+  if(!IfInteger(b) | b <= 0)
+  {
+    stop("Parameter b should be integer value and > 0")
+  }
 
   # check form of the initial sample
 
   if(increases)
   {
-    initialSample <- transformFromIncreases(initialSample)
+    initialSample <- TransformFromIncreases(initialSample)
   }
 
   # checking consistency of fuzzy numbers
 
-  if(!all(apply(initialSample, 1, is.Fuzzy)))
+  if(!all(apply(initialSample, 1, IsFuzzy)))
   {
     stop("Some values in  initial sample are not correct fuzzy numbers")
   }
 
   # calculate value and ambiguity for initial sample
 
-  initialValues <- calculateValue(initialSample)
+  initialValues <- CalculateValue(initialSample)
 
-  initialAmbiguites <- calculateAmbiguity(initialSample)
+  initialAmbiguites <- CalculateAmbiguity(initialSample)
 
   # cat("Calculated values: ", initialValues, "\n")
 
@@ -157,7 +162,7 @@ VAmethod <- function(initialSample, b = n, increases = FALSE)
 
     # check if selected fuzzy number is triangular
 
-    if (!is.Triangular(initialSample[numbers[i],]))
+    if (!IsTriangular(initialSample[numbers[i],]))
     {
       # we have TPFN, generate s
 
@@ -188,7 +193,7 @@ VAmethod <- function(initialSample, b = n, increases = FALSE)
 
   if(increases)
   {
-    outputSample <- transformToIncreases(outputSample)
+    outputSample <- TransformToIncreases(outputSample)
   }
 
   return(outputSample)

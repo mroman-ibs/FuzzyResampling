@@ -62,7 +62,7 @@
 #'
 #' # calculate the p-value using the VA resampling method
 #'
-#' TwoSampleCTest(fuzzyValues, fuzzyValuesShift, resamplingMethod = VAmethod)
+#' TwoSampleCTest(fuzzyValues, fuzzyValuesShift, resamplingMethod = VAMethod)
 #'
 
 #'
@@ -82,7 +82,7 @@
 # C bootstrapped test for two means
 
 TwoSampleCTest <- function(initialSample1, initialSample2,
-                           numberOfSamples = 100, theta = 1/3, resamplingMethod = classicalBootstrap, increases = FALSE)
+                           numberOfSamples = 100, theta = 1/3, resamplingMethod = ClassicalBootstrap, increases = FALSE)
 {
 
   # changing possible vector to matrix
@@ -101,15 +101,15 @@ TwoSampleCTest <- function(initialSample1, initialSample2,
 
   # check the initial sample
 
-  parameterCheckForInitialSample(initialSample1)
+  ParameterCheckForInitialSample(initialSample1)
 
   # check the initial sample
 
-  parameterCheckForInitialSample(initialSample2)
+  ParameterCheckForInitialSample(initialSample2)
 
   # checking numberOfSamples parameter
 
-  if(!ifInteger(numberOfSamples) | numberOfSamples <= 1)
+  if(!IfInteger(numberOfSamples) | numberOfSamples <= 1)
   {
     stop("Parameter numberOfSamples should be integer value and > 1")
   }
@@ -135,14 +135,14 @@ TwoSampleCTest <- function(initialSample1, initialSample2,
 
   n2 <- nrow(initialSample2)
 
-  standardStatistics <- valueA(initialSample1, initialSample2, theta) /
-    (valueB(initialSample1, theta) / n1 + valueB(initialSample2, theta) / n2)
+  standardStatistics <- ValueA(initialSample1, initialSample2, theta) /
+    (ValueB(initialSample1, theta) / n1 + ValueB(initialSample2, theta) / n2)
 
   # change the initial samples according to H_0
 
-  initialSample1Changed <- sweep(initialSample1,2, meanFuzzyNumber(initialSample2),"+")
+  initialSample1Changed <- sweep(initialSample1,2, MeanFuzzyNumber(initialSample2),"+")
 
-  initialSample2Changed <- sweep(initialSample2,2, meanFuzzyNumber(initialSample1),"+")
+  initialSample2Changed <- sweep(initialSample2,2, MeanFuzzyNumber(initialSample1),"+")
 
   # prepare vector
 
@@ -160,8 +160,8 @@ TwoSampleCTest <- function(initialSample1, initialSample2,
 
     # calculate bootstrapped statistics (step 4)
 
-    bootstrappedStatistics[i] <- valueA(bootstrapSample1, bootstrapSample2, theta) /
-      (valueB(bootstrapSample1, theta) / n1 + valueB(bootstrapSample2, theta) / n2)
+    bootstrappedStatistics[i] <- ValueA(bootstrapSample1, bootstrapSample2, theta) /
+      (ValueB(bootstrapSample1, theta) / n1 + ValueB(bootstrapSample2, theta) / n2)
 
     # setTxtProgressBar(pb, i)
 

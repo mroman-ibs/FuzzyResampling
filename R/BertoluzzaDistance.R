@@ -111,30 +111,30 @@ BertoluzzaDistance <- function(fuzzyNumber1, fuzzyNumber2, theta = 1/3, increase
 
   if(increases)
   {
-    fuzzyNumber1 <- transformFromIncreases(fuzzyNumber1)
+    fuzzyNumber1 <- TransformFromIncreases(fuzzyNumber1)
 
-    fuzzyNumber2 <- transformFromIncreases(fuzzyNumber2)
+    fuzzyNumber2 <- TransformFromIncreases(fuzzyNumber2)
   }
 
 
   # checking consistency of fuzzy numbers
 
-  if(!all(apply(fuzzyNumber1, 1, is.Fuzzy)))
+  if(!all(apply(fuzzyNumber1, 1, IsFuzzy)))
   {
     stop("Some values in fuzzyNumber1 parameter are not correct fuzzy numbers")
   }
 
   # checking consistency of fuzzy numbers
 
-  if(!all(apply(fuzzyNumber2, 1, is.Fuzzy)))
+  if(!all(apply(fuzzyNumber2, 1, IsFuzzy)))
   {
     stop("Some values in fuzzyNumber2 parameter are not correct fuzzy numbers")
   }
 
   # calculate mid and spreads
 
-  midSpreadFN1 <- transformToMidSpreads(fuzzyNumber1)
-  midSpreadFN2 <- transformToMidSpreads(fuzzyNumber2)
+  midSpreadFN1 <- TransformToMidSpreads(fuzzyNumber1)
+  midSpreadFN2 <- TransformToMidSpreads(fuzzyNumber2)
 
 
   # find output

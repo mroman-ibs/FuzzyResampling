@@ -1,3 +1,8 @@
+# FuzzyResampling 0.5
+
+* All of the functions have now the correct CamelCaseNames style.
+
+
 # FuzzyResampling 0.4.2
 
 * Dropped strong dependency with ttutils package.

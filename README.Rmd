@@ -41,13 +41,13 @@ Additionally, there are procedures which randomly generate trapezoidal fuzzy num
 The following procedures are available in the library:
 
 + Resampling procedures:
-  + *classicalBootstrap* - classical approach based on Efron's method,
-  + *VAmethod* - resampling method which preserves the value and ambiguity (see [@grzegorzewskietal2020]),
-  + *EWmethod* - resampling method which preserves the expected value and width (see [@grzegorzewskiamcs2020]),
-  + *VAAmethod* - resampling method which preserves the value, left-hand and right-hand ambiguities (see [@GrzegorzewskiRom2021]),
-  + *VAFmethod* - resampling method which preserves the value, ambiguity and fuzziness (see [@grzegorzewskietal2020]),
-  + *dmethod* - resampling method which preserves the left end of the cores and increments (see [@romaniuk_hryniewicz]),
-  + *wmethod* - resampling method which uses the special *w density* to "smooth" the output fuzzy value (see [@romaniuk_hryniewicz]).
+  + *ClassicalBootstrap* - classical approach based on Efron's method,
+  + *VAMethod* - resampling method which preserves the value and ambiguity (see [@grzegorzewskietal2020]),
+  + *EWMethod* - resampling method which preserves the expected value and width (see [@grzegorzewskiamcs2020]),
+  + *VAAMethod* - resampling method which preserves the value, left-hand and right-hand ambiguities (see [@GrzegorzewskiRom2021]),
+  + *VAFMethod* - resampling method which preserves the value, ambiguity and fuzziness (see [@grzegorzewskietal2020]),
+  + *DMethod* - resampling method which preserves the left end of the cores and increments (see [@romaniuk_hryniewicz]),
+  + *WMethod* - resampling method which uses the special *w density* to "smooth" the output fuzzy value (see [@romaniuk_hryniewicz]).
   
 + Random generation of the initial samples:  
   + *GeneratorNU* - generation of the initial sample using the normal and uniform distributions (see [@grzegorzewskietal2020]),
@@ -101,17 +101,17 @@ set.seed(12345)
 
 # generate the secondary sample using the classical approach
 
-classicalBootstrap(fuzzyValues)
+ClassicalBootstrap(fuzzyValues)
 
 
 # generate the secondary sample using the VA method
 
-VAmethod(fuzzyValues)
+VAMethod(fuzzyValues)
 
 
 # generate the secondary sample (6 fuzzy numbers) using the d-method
 
-dmethod(fuzzyValues, b = 6)
+DMethod(fuzzyValues, b = 6)
 
 
 # calculate the mid/spread distance between the first value
@@ -131,7 +131,7 @@ OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5))
 
 # calculate the p-value using the VA resampling method
 
-OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5),resamplingMethod = VAmethod)
+OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5),resamplingMethod = VAMethod)
 
 # seed PRNG
 
@@ -144,7 +144,7 @@ TwoSampleCTest(fuzzyValues, fuzzyValues+0.1)
 
 # calculate the p-value using the VA resampling method
 
-TwoSampleCTest(fuzzyValues, fuzzyValues+0.1,resamplingMethod = VAmethod)
+TwoSampleCTest(fuzzyValues, fuzzyValues+0.1,resamplingMethod = VAMethod)
 
 
 
@@ -158,7 +158,7 @@ SEResamplingMean(fuzzyValues)
 
 # calculate the SE of the mean using the VA resampling method
 
-SEResamplingMean(fuzzyValues, resamplingMethod = VAmethod)
+SEResamplingMean(fuzzyValues, resamplingMethod = VAMethod)
 
 # calculate the MSE of the given mean using the classical (i.e. Efron's) bootstrap
 
@@ -166,7 +166,7 @@ SEResamplingMean(fuzzyValues, trueMean = c(0,0.5,1,2))
 
 # calculate the MSE of the given mean using the VA resampling method
 
-SEResamplingMean(fuzzyValues, resamplingMethod = VAmethod, trueMean = c(0,0.5,1,2))
+SEResamplingMean(fuzzyValues, resamplingMethod = VAMethod, trueMean = c(0,0.5,1,2))
 
 # seed PRNG
 
@@ -181,7 +181,7 @@ GeneratorNU(10, 0,1,1,2)
 ``` r
 # help concerning the VA method
 
-?VAmethod
+?VAMethod
 
 ```
 

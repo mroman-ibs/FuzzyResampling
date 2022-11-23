@@ -1,7 +1,7 @@
 #' E(xpected value)W(idth) resampling method for triangular and trapezoidal fuzzy numbers
 #'
 #' @description
-#' `EWmethod` returns the secondary (bootstrapped) sample and uses the resampling
+#' `EWMethod` returns the secondary (bootstrapped) sample and uses the resampling
 #' scheme which does not change the expected values and widths of the fuzzy variables from
 #'  the initial sample (the EW method, see (Grzegorzewski et al, 2020)).
 #'
@@ -42,9 +42,9 @@
 #'
 #' @family resampling functions
 #'
-#' @seealso \code{\link{classicalBootstrap}}, \code{\link{VAmethod}} for the VA method,
-#' \code{\link{VAFmethod}} for the VAF method, \code{\link{VAAmethod}} for the VAA method,
-#' \code{\link{dmethod}} for the d method, \code{\link{wmethod}} for the w method
+#' @seealso \code{\link{ClassicalBootstrap}}, \code{\link{VAMethod}} for the VA method,
+#' \code{\link{VAFMethod}} for the VAF method, \code{\link{VAAMethod}} for the VAA method,
+#' \code{\link{DMethod}} for the d method, \code{\link{WMethod}} for the w method
 #'
 #' @importFrom stats runif
 #'
@@ -59,9 +59,9 @@
 #'
 #' set.seed(12345)
 #'
-#' EWmethod(fuzzyValues)
+#' EWMethod(fuzzyValues)
 #'
-#' EWmethod(fuzzyValues,b=4)
+#' EWMethod(fuzzyValues,b=4)
 #'
 #' # prepare some fuzzy numbers (second type of the initial sample)
 #'
@@ -70,9 +70,9 @@
 #'
 #' # generate the secondary sample using the EW method
 #'
-#' EWmethod(fuzzyValuesInc,increases = TRUE)
+#' EWMethod(fuzzyValuesInc,increases = TRUE)
 #'
-#' EWmethod(fuzzyValuesInc,b=4,increases = TRUE)
+#' EWMethod(fuzzyValuesInc,b=4,increases = TRUE)
 #'
 #' @references
 #'
@@ -88,7 +88,7 @@
 
 # EW resampling method
 
-EWmethod <- function(initialSample, b = n, increases = FALSE)
+EWMethod <- function(initialSample, b = n, increases = FALSE)
 {
   # changing possible vector to matrix
 
@@ -97,34 +97,39 @@ EWmethod <- function(initialSample, b = n, increases = FALSE)
     initialSample <- matrix(initialSample,nrow=1)
   }
 
+  ParameterCheckForInitialSample(initialSample)
+
   # setting n
 
   n <- nrow(initialSample)
 
-  # checking parameters
+  # checking b parameter
 
-  parameterCheckForResampling(initialSample,b)
+  if(!IfInteger(b) | b <= 0)
+  {
+    stop("Parameter b should be integer value and > 0")
+  }
 
 
   # check form of the initial sample
 
   if(increases)
   {
-    initialSample <- transformFromIncreases(initialSample)
+    initialSample <- TransformFromIncreases(initialSample)
   }
 
   # checking consistency of fuzzy numbers
 
-  if(!all(apply(initialSample, 1, is.Fuzzy)))
+  if(!all(apply(initialSample, 1, IsFuzzy)))
   {
     stop("Some values in  initial sample are not correct fuzzy numbers")
   }
 
   # calculate exp. value and width for initial sample
 
-  initialExpValues <- calculateExpValue(initialSample)
+  initialExpValues <- CalculateExpValue(initialSample)
 
-  initialWidths <- calculateWidth(initialSample)
+  initialWidths <- CalculateWidth(initialSample)
 
   # cat("Calculated exp. values: ", initialExpValues, "\n")
 
@@ -156,7 +161,7 @@ EWmethod <- function(initialSample, b = n, increases = FALSE)
   {
     # check if selected fuzzy number is triangular
 
-    if (!is.Triangular(initialSample[numbers[i],]))
+    if (!IsTriangular(initialSample[numbers[i],]))
     {
 
       # we have TPFN, generate s
@@ -187,7 +192,7 @@ EWmethod <- function(initialSample, b = n, increases = FALSE)
 
   if(increases)
   {
-    outputSample <- transformToIncreases(outputSample)
+    outputSample <- TransformToIncreases(outputSample)
   }
 
   return(outputSample)

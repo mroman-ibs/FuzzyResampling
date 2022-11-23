@@ -71,7 +71,7 @@
 #'
 #' # calculate the SE of the mean using the VA resampling method
 #'
-#' SEResamplingMean(fuzzyValues, resamplingMethod = VAmethod)
+#' SEResamplingMean(fuzzyValues, resamplingMethod = VAMethod)
 #'
 #' # calculate the MSE of the given mean using the classical (i.e. Efron's) bootstrap
 #'
@@ -79,7 +79,7 @@
 #'
 #' # calculate the MSE of the given mean using the VA resampling method
 #'
-#' SEResamplingMean(fuzzyValues, resamplingMethod = VAmethod, trueMean = c(0,0.5,1,2))
+#' SEResamplingMean(fuzzyValues, resamplingMethod = VAMethod, trueMean = c(0,0.5,1,2))
 #'
 
 #'
@@ -103,7 +103,7 @@
 
 # calculate SE/MSE for the mean
 
-SEResamplingMean <- function(initialSample, resamplingMethod=classicalBootstrap, repetitions = 100, trueMean = NA, theta = 1/3,
+SEResamplingMean <- function(initialSample, resamplingMethod=ClassicalBootstrap, repetitions = 100, trueMean = NA, theta = 1/3,
                              increases = FALSE)
 {
 
@@ -116,11 +116,11 @@ SEResamplingMean <- function(initialSample, resamplingMethod=classicalBootstrap,
 
   # check the initial sample
 
-  parameterCheckForInitialSample(initialSample)
+  ParameterCheckForInitialSample(initialSample)
 
   # checking repetitions parameter
 
-  if(!ifInteger(repetitions) | repetitions <= 1)
+  if(!IfInteger(repetitions) | repetitions <= 1)
   {
     stop("Parameter repetitions should be integer value and > 1")
   }
@@ -207,6 +207,6 @@ SEResamplingMean <- function(initialSample, resamplingMethod=classicalBootstrap,
 
 
 
-resamplingMethods <- c("classicalBootstrap", "VAmethod", "EWmethod",
-                       "VAFmethod", "dmethod", "wmethod")
+resamplingMethods <- c("ClassicalBootstrap", "VAMethod", "EWMethod",
+                       "VAFMethod", "DMethod", "WMethod")
 

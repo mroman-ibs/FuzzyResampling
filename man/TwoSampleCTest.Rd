@@ -9,7 +9,7 @@ TwoSampleCTest(
   initialSample2,
   numberOfSamples = 100,
   theta = 1/3,
-  resamplingMethod = classicalBootstrap,
+  resamplingMethod = ClassicalBootstrap,
   increases = FALSE
 )
 }
@@ -72,7 +72,7 @@ TwoSampleCTest(fuzzyValues, fuzzyValuesShift)
 
 # calculate the p-value using the VA resampling method
 
-TwoSampleCTest(fuzzyValues, fuzzyValuesShift, resamplingMethod = VAmethod)
+TwoSampleCTest(fuzzyValues, fuzzyValuesShift, resamplingMethod = VAMethod)
 
 
 }

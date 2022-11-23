@@ -9,7 +9,7 @@ OneSampleCTest(
   mu_0,
   numberOfSamples = 100,
   theta = 1/3,
-  resamplingMethod = classicalBootstrap,
+  resamplingMethod = ClassicalBootstrap,
   increases = FALSE
 )
 }
@@ -67,7 +67,7 @@ OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5))
 
 # calculate the p-value using the VA resampling method
 
-OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5),resamplingMethod = VAmethod)
+OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5),resamplingMethod = VAMethod)
 
 
 }

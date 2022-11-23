@@ -1,7 +1,7 @@
 #' w method for resampling triangular and trapezoidal fuzzy numbers
 #'
 #' @description
-#' `wmethod` returns the secondary (bootstrapped) sample and uses the resampling
+#' `WMethod` returns the secondary (bootstrapped) sample and uses the resampling
 #' scheme based on the special \emph{w density} which is related to the left ends of the cores and increments
 #'  (i.e. length of the core,
 #'  left and right increment of the support) of the fuzzy variables from
@@ -46,9 +46,9 @@
 #'
 #' @family resampling functions
 #'
-#' @seealso @seealso \code{\link{classicalBootstrap}},
-#' \code{\link{EWmethod}} for the EW method, \code{\link{VAFmethod}} for the VAF method,
-#' \code{\link{VAAmethod}} for the VAA method
+#' @seealso @seealso \code{\link{ClassicalBootstrap}},
+#' \code{\link{EWMethod}} for the EW method, \code{\link{VAFMethod}} for the VAF method,
+#' \code{\link{VAAMethod}} for the VAA method
 #'
 #' @importFrom stats runif
 #'
@@ -63,9 +63,9 @@
 #'
 #' set.seed(12345)
 #'
-#' wmethod(fuzzyValues)
+#' WMethod(fuzzyValues)
 #'
-#' wmethod(fuzzyValues,b=4)
+#' WMethod(fuzzyValues,b=4)
 #'
 #' # prepare some fuzzy numbers (second type of the initial sample)
 #'
@@ -74,9 +74,9 @@
 #'
 #' # generate the secondary sample using the w method
 #'
-#' wmethod(fuzzyValuesInc,increases = TRUE)
+#' WMethod(fuzzyValuesInc,increases = TRUE)
 #'
-#' wmethod(fuzzyValuesInc,b=4,increases = TRUE)
+#' WMethod(fuzzyValuesInc,b=4,increases = TRUE)
 #'
 #' @references
 #'
@@ -91,7 +91,7 @@
 
 # w resampling method
 
-wmethod <- function(initialSample, b = n, increases = FALSE)
+WMethod <- function(initialSample, b = n, increases = FALSE)
 {
   # changing possible vector to matrix
 
@@ -100,32 +100,37 @@ wmethod <- function(initialSample, b = n, increases = FALSE)
     initialSample <- matrix(initialSample,nrow=1)
   }
 
+  ParameterCheckForInitialSample(initialSample)
+
   # setting n
 
   n <- nrow(initialSample)
 
-  # checking parameters
+  # checking b parameter
 
-  parameterCheckForResampling(initialSample,b)
+  if(!IfInteger(b) | b <= 0)
+  {
+    stop("Parameter b should be integer value and > 0")
+  }
 
 
   # check form of the initial sample
 
   if(increases)
   {
-    initialSample <- transformFromIncreases(initialSample)
+    initialSample <- TransformFromIncreases(initialSample)
   }
 
   # checking consistency of fuzzy numbers
 
-  if(!all(apply(initialSample, 1, is.Fuzzy)))
+  if(!all(apply(initialSample, 1, IsFuzzy)))
   {
     stop("Some values in  initial sample are not correct fuzzy numbers")
   }
 
   # calculate and sort ends and increaments
 
-  spreads <- transformToAllSpreads(initialSample)
+  spreads <- TransformToAllSpreads(initialSample)
 
   # cat("spreads:\n")
   # print(spreads)
@@ -137,19 +142,19 @@ wmethod <- function(initialSample, b = n, increases = FALSE)
 
   # sample new cores and supports
 
-  newLeftEndCore <- replicate(b,wFunction(spreads[,2]))
+  newLeftEndCore <- replicate(b,WFunction(spreads[,2]))
 
   # cat("newLeftEndCore: ", newLeftEndCore, "\n")
 
-  newIncreaseCore <- replicate(b,wFunction(spreads[,3]))
+  newIncreaseCore <- replicate(b,WFunction(spreads[,3]))
 
   # cat("newIncreaseCore: ", newIncreaseCore, "\n")
 
-  newLeftIncreaseSpread <- replicate(b,wFunction(spreads[,1]))
+  newLeftIncreaseSpread <- replicate(b,WFunction(spreads[,1]))
 
   # cat("newLeftIncreaseSpread: ", newLeftIncreaseSpread, "\n")
 
-  newRightIncreaseSpread <- replicate(b,wFunction(spreads[,4]))
+  newRightIncreaseSpread <- replicate(b,WFunction(spreads[,4]))
 
   # cat("newRightIncreaseSpread: ", newRightIncreaseSpread, "\n")
 
@@ -166,7 +171,7 @@ wmethod <- function(initialSample, b = n, increases = FALSE)
 
   if(increases)
   {
-    outputSample <- transformToIncreases(outputSample)
+    outputSample <- TransformToIncreases(outputSample)
   }
 
   return(outputSample)
