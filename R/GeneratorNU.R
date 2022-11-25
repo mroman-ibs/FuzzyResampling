@@ -86,6 +86,13 @@ GeneratorNU <- function(n, mu, sigma, a, b, increases = FALSE, ...)
     stop("Parameter n should be integer value and > 1")
   }
 
+  # checking mu parameter
+
+  if(!is.double(mu))
+  {
+    stop("Parameter mu should be double value")
+  }
+
   # checking sigma parameter
 
   if(!is.double(sigma) | sigma < 0)
@@ -105,6 +112,13 @@ GeneratorNU <- function(n, mu, sigma, a, b, increases = FALSE, ...)
   if(!is.double(b) | b < 0)
   {
     stop("Parameter b should be double value and > 0")
+  }
+
+  # checking the validity of increases
+
+  if(!is.logical(increases))
+  {
+    stop("Parameter increases should have logical value")
   }
 
   # output matrix of fuzzy numbers

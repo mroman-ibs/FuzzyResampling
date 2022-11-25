@@ -27,7 +27,7 @@ These fuzzy numbers have the same form as the values from the initial sample dep
 \description{
 \code{VAFMethod} returns the secondary (bootstrapped) sample and uses the resampling
 scheme which does not change the values, ambiguities and fuzziness of the fuzzy variables from
-the initial sample (the VAF method, see (Grzegorzewski et al, 2020)).
+the initial sample (the VAF method, see (Grzegorzewski et al., 2020)).
 }
 \details{
 The initial sample should consist of triangular or trapezoidal fuzzy numbers, given as a single vector or a whole matrix.

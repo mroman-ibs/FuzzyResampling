@@ -3,11 +3,6 @@
 
 # FuzzyResampling
 
-<!-- badges: start -->
-
-[![R-CMD-check](https://github.com/mroman-ibs/FuzzyResampling/workflows/R-CMD-check/badge.svg)](https://github.com/mroman-ibs/FuzzyResampling/actions)
-<!-- badges: end -->
-
 The goal of FuzzyResampling, a library written in R, is to provide
 additional resampling procedures, apart from the classical bootstrap
 (i.e. Efron’s approach, see (Efron and Tibshirani 1994)), for fuzzy
@@ -80,6 +75,23 @@ The following procedures are available in the library:
   - *SEResamplingMean* - estimation of the standard error or the
     mean-squared error for the mean (see (Grzegorzewski and Romaniuk
     2021)).
+
+- Calculation of the characteristics of fuzzy numbers:
+
+  - *CalculateFuzziness* - calculate the fuzziness of fuzzy number (see
+    (Grzegorzewski, Hryniewicz, and Romaniuk 2019)),
+  - *CalculateWidth* - calculate the width of fuzzy number (see
+    (Grzegorzewski and Romaniuk 2022)),
+  - *CalculateAmbiguity* - calculate the ambiguity of fuzzy number (see
+    (Grzegorzewski, Hryniewicz, and Romaniuk 2019)),
+  - *CalculateAmbiguityL* - calculate the left-hand ambiguity of fuzzy
+    number (see (Grzegorzewski and Romaniuk 2022)),
+  - *CalculateAmbiguityR* - calculate the right-hand ambiguity of fuzzy
+    number (see (Grzegorzewski and Romaniuk 2022)),
+  - *CalculateValue* - calculate the value of fuzzy number (see
+    (Grzegorzewski and Romaniuk 2022)),
+  - *CalculateExpValue* - calculate the expected value of fuzzy number
+    (see (Grzegorzewski and Romaniuk 2022)).
 
 - Additional procedures:
 
@@ -254,6 +266,12 @@ GeneratorNU(10, 0,1,1,2)
 #>  [8,] -2.4312725 -1.46129002 -0.28782204  1.2145784
 #>  [9,] -1.8836547 -1.39579705  0.42769842  0.7769981
 #> [10,] -2.4667277 -0.93580809 -0.08268549  1.6140993
+
+
+# calculate the ambiguity for the whole matrix
+
+CalculateAmbiguity(fuzzyValues)
+#> [1] 0.3333333 0.4083333 0.5000000
 ```
 
 ``` r

@@ -46,7 +46,7 @@
 #'
 #' @family resampling functions
 #'
-#' @seealso @seealso \code{\link{ClassicalBootstrap}},
+#' @seealso \code{\link{ClassicalBootstrap}},
 #' \code{\link{EWMethod}} for the EW method, \code{\link{VAFMethod}} for the VAF method,
 #' \code{\link{VAAMethod}} for the VAA method
 #'
@@ -111,6 +111,13 @@ WMethod <- function(initialSample, b = n, increases = FALSE)
   if(!IfInteger(b) | b <= 0)
   {
     stop("Parameter b should be integer value and > 0")
+  }
+
+  # checking the validity of increases
+
+  if(!is.logical(increases))
+  {
+    stop("Parameter increases should have logical value")
   }
 
 

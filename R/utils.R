@@ -210,64 +210,10 @@ TransformToAllSpreads <- function(inputSpreads)
 }
 
 
-# calculate value of fuzzy number
-
-CalculateValue <- function(fuzzyNumber)
-{
-  spreads <- TransformToSpreads(fuzzyNumber)
-
-  output <- spreads[,1] + (spreads[,4] - spreads[,3]) / 6
-
-  return(output)
-}
 
 
-# calculate fuzziness of fuzzy number
-
-CalculateFuzziness <- function(fuzzyNumber)
-{
-  spreads <- TransformToSpreads(fuzzyNumber)
-
-  output <- (spreads[,4] + spreads[,3]) / 4
-
-  return(output)
-}
 
 
-# calculate left-hand ambiguity
-
-CalculateAmbiguityL <- function(fuzzyNumber)
-{
-  spreads <- TransformToSpreads(fuzzyNumber)
-
-  output <- spreads[,2] / 2 + spreads[,3] / 6
-
-  return(output)
-}
-
-
-# calculate right-hand ambiguity
-
-CalculateAmbiguityU <- function(fuzzyNumber)
-{
-  spreads <- TransformToSpreads(fuzzyNumber)
-
-  output <- spreads[,2] / 2+ spreads[,4] / 6
-
-  return(output)
-}
-
-
-# calculate ambiguity of fuzzy number
-
-CalculateAmbiguity <- function(fuzzyNumber)
-{
-  spreads <- TransformToSpreads(fuzzyNumber)
-
-  output <- spreads[,2] + (spreads[,3] + spreads[,4]) / 6
-
-  return(output)
-}
 
 
 # check if the initial value is triangular fuzzy number
@@ -308,6 +254,13 @@ IsFuzzy <- function(fuzzyNumber)
 
 ParameterCheckForInitialSample <- function(initialSample)
 {
+  # checking the respective form of matrix
+
+  if(!is.matrix(initialSample))
+  {
+    stop("Values in initialSample are not given as a matrix/vector")
+  }
+
   # checking the number of columns
 
   if(!(ncol(initialSample)%%4 == 0))
@@ -370,28 +323,9 @@ ParameterCheckForResampling <- function(initialSample, b)
 
 }
 
-# calculate expected value of fuzzy number
-
-CalculateExpValue <- function(fuzzyNumber)
-{
-  spreads <- TransformToSpreads(fuzzyNumber)
-
-  output <- spreads[,1] + (spreads[,4] - spreads[,3]) / 4
-
-  return(output)
-}
 
 
-# calculate width of fuzzy number
 
-CalculateWidth <- function(fuzzyNumber)
-{
-  spreads <- TransformToSpreads(fuzzyNumber)
-
-  output <- spreads[,2] + (spreads[,4] + spreads[,3]) / 4
-
-  return(output)
-}
 
 
 # calculate w density for w-method

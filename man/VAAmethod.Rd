@@ -78,7 +78,7 @@ Uncertainty and Imprecision in Decision Making and Decision Support: New Advance
 Springer
 }
 \seealso{
-@seealso \code{\link{ClassicalBootstrap}},
+\code{\link{ClassicalBootstrap}},
 \code{\link{EWMethod}} for the EW method, \code{\link{VAFMethod}} for the VAF method,
 \code{\link{DMethod}} for the d method, \code{\link{WMethod}} for the w method
 

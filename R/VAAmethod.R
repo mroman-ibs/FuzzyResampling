@@ -42,7 +42,7 @@
 #'
 #' @family resampling functions
 #'
-#' @seealso @seealso \code{\link{ClassicalBootstrap}},
+#' @seealso \code{\link{ClassicalBootstrap}},
 #' \code{\link{EWMethod}} for the EW method, \code{\link{VAFMethod}} for the VAF method,
 #'  \code{\link{DMethod}} for the d method, \code{\link{WMethod}} for the w method
 #'
@@ -120,6 +120,13 @@ VAAMethod <- function(initialSample, b = n, increases = FALSE)
     stop("Parameter b should be integer value and > 0")
   }
 
+  # checking the validity of increases
+
+  if(!is.logical(increases))
+  {
+    stop("Parameter increases should have logical value")
+  }
+
 
   # check form of the initial sample
 
@@ -141,7 +148,7 @@ VAAMethod <- function(initialSample, b = n, increases = FALSE)
 
   initialAmbiguitesL <- CalculateAmbiguityL(initialSample)
 
-  initialAmbiguitesU <- CalculateAmbiguityU(initialSample)
+  initialAmbiguitesU <- CalculateAmbiguityR(initialSample)
 
   # cat("Calculated values: ", initialValues, "\n")
 

@@ -1,6 +1,7 @@
 # FuzzyResampling 0.5
 
 * All of the functions have now the correct CamelCaseNames style.
+* Added functions for calculation of the characteristics of fuzzy numbers (like the width, etc.)
 
 
 # FuzzyResampling 0.4.2

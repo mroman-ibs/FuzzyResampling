@@ -107,6 +107,47 @@ BertoluzzaDistance <- function(fuzzyNumber1, fuzzyNumber2, theta = 1/3, increase
     stop("Some values in fuzzyNumber2 parameter are not numeric ones")
   }
 
+  # checking the respective form of matrix
+
+  if(!is.matrix(fuzzyNumber1))
+  {
+    stop("Values in fuzzyNumber1 parameter are not given as a matrix/vector")
+  }
+
+  if(!is.matrix(fuzzyNumber2))
+  {
+    stop("Values in fuzzyNumber2 parameter are not given as a matrix/vector")
+  }
+
+  # checking the number of columns
+
+  if(!(ncol(fuzzyNumber1)%%4 == 0))
+  {
+    stop("There should be 4 columns in fuzzyNumber1 parameter")
+  }
+
+  if(!(ncol(fuzzyNumber2)%%4 == 0))
+  {
+    stop("There should be 4 columns in fuzzyNumber2 parameter")
+  }
+
+  # checking the validity of increases
+
+  if(!is.logical(increases))
+  {
+    stop("Parameter increases should have logical value")
+  }
+
+  # checking the validity of theta
+
+  # checking the validity of increases
+
+  if(!is.double(theta) | theta < 0)
+  {
+    stop("Parameter theta should be double value and > 0")
+  }
+
+
   # check form of fuzzy numbers
 
   if(increases)
@@ -115,6 +156,7 @@ BertoluzzaDistance <- function(fuzzyNumber1, fuzzyNumber2, theta = 1/3, increase
 
     fuzzyNumber2 <- TransformFromIncreases(fuzzyNumber2)
   }
+
 
 
   # checking consistency of fuzzy numbers

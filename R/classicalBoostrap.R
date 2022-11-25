@@ -104,6 +104,13 @@ ClassicalBootstrap <- function(initialSample, b = n, increases = FALSE)
     stop("Parameter b should be integer value and > 0")
   }
 
+  # checking the validity of increases
+
+  if(!is.logical(increases))
+  {
+    stop("Parameter increases should have logical value")
+  }
+
   # check form of the initial sample
 
   if(increases)

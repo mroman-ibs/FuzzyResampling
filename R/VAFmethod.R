@@ -3,7 +3,7 @@
 #' @description
 #' `VAFMethod` returns the secondary (bootstrapped) sample and uses the resampling
 #' scheme which does not change the values, ambiguities and fuzziness of the fuzzy variables from
-#'  the initial sample (the VAF method, see (Grzegorzewski et al, 2020)).
+#'  the initial sample (the VAF method, see (Grzegorzewski et al., 2020)).
 #'
 #'
 #' @details
@@ -106,6 +106,13 @@ VAFMethod <- function(initialSample, b = n, increases = FALSE)
   if(!IfInteger(b) | b <= 0)
   {
     stop("Parameter b should be integer value and > 0")
+  }
+
+  # checking the validity of increases
+
+  if(!is.logical(increases))
+  {
+    stop("Parameter increases should have logical value")
   }
 
 

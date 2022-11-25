@@ -16,10 +16,6 @@ knitr::opts_chunk$set(
 
 # FuzzyResampling
 
-<!-- badges: start -->
-
-[![R-CMD-check](https://github.com/mroman-ibs/FuzzyResampling/workflows/R-CMD-check/badge.svg)](https://github.com/mroman-ibs/FuzzyResampling/actions)
-<!-- badges: end -->
 
 The goal of FuzzyResampling, a library written in R, is to provide additional resampling procedures, apart from the classical bootstrap (i.e. Efron's approach, see [@Efron1994]), for fuzzy data.
 In the classical approach, secondary samples are drawing with replacement from the initial sample.
@@ -58,6 +54,17 @@ The following procedures are available in the library:
   + *OneSampleCTest* - estimation of the p-value of the one-sample test for the mean (see [@lubiano2016]),
   + *TwoSampleCTest* - estimation of the p-value of the two-sample test for the mean (see [@lubiano2016]),
   + *SEResamplingMean* - estimation of the standard error or the mean-squared error for the mean (see [@grzegorzewski2021]).
+  
++ Calculation of the characteristics of fuzzy numbers:
+
+  + *CalculateFuzziness* - calculate the fuzziness of fuzzy number (see [@grzegorzewski2019]),
+  + *CalculateWidth* - calculate the width of fuzzy number (see [@GrzegorzewskiRom2021]),
+  + *CalculateAmbiguity* - calculate the ambiguity of fuzzy number  (see [@grzegorzewski2019]),
+  + *CalculateAmbiguityL* - calculate the left-hand ambiguity of fuzzy number (see [@GrzegorzewskiRom2021]),
+  + *CalculateAmbiguityR* - calculate the right-hand ambiguity of fuzzy number (see [@GrzegorzewskiRom2021]),
+  + *CalculateValue* - calculate the value of fuzzy number (see [@GrzegorzewskiRom2021]),
+  + *CalculateExpValue* - calculate the expected value of fuzzy number (see [@GrzegorzewskiRom2021]).
+  
 
 + Additional procedures:
   + *BertoluzzaDistance* - calculation of the Bertoluzza et al.'s distance (aka the mid/spread distance, see [@Bertoluzza1995]).
@@ -175,6 +182,11 @@ set.seed(1234)
 # generate 10 trapezoidal fuzzy numbers using the normal and uniform distributions
 
 GeneratorNU(10, 0,1,1,2)
+
+
+# calculate the ambiguity for the whole matrix
+
+CalculateAmbiguity(fuzzyValues)
 
 ```
 

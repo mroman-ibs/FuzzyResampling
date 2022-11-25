@@ -128,6 +128,13 @@ TwoSampleCTest <- function(initialSample1, initialSample2,
     stop("Parameter resamplingMethod should be a proper name of the resampling method")
   }
 
+  # checking the validity of increases
+
+  if(!is.logical(increases))
+  {
+    stop("Parameter increases should have logical value")
+  }
+
 
   # calculation of C test without bootstrap (step 1)
 
