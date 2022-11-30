@@ -71,7 +71,7 @@
 #'
 #' # calculate the SE of the mean using the VA resampling method
 #'
-#' SEResamplingMean(fuzzyValues, resamplingMethod = VAMethod)
+#' SEResamplingMean(fuzzyValues, resamplingMethod = "VAMethod")
 #'
 #' # calculate the MSE of the given mean using the classical (i.e. Efron's) bootstrap
 #'
@@ -79,7 +79,7 @@
 #'
 #' # calculate the MSE of the given mean using the VA resampling method
 #'
-#' SEResamplingMean(fuzzyValues, resamplingMethod = VAMethod, trueMean = c(0,0.5,1,2))
+#' SEResamplingMean(fuzzyValues, resamplingMethod = "VAMethod", trueMean = c(0,0.5,1,2))
 #'
 
 #'
@@ -103,7 +103,7 @@
 
 # calculate SE/MSE for the mean
 
-SEResamplingMean <- function(initialSample, resamplingMethod=ClassicalBootstrap, repetitions = 100, trueMean = NA, theta = 1/3,
+SEResamplingMean <- function(initialSample, resamplingMethod="ClassicalBootstrap", repetitions = 100, trueMean = NA, theta = 1/3,
                              increases = FALSE)
 {
 
@@ -125,6 +125,13 @@ SEResamplingMean <- function(initialSample, resamplingMethod=ClassicalBootstrap,
     stop("Parameter repetitions should be integer value and > 1")
   }
 
+  # checking trueMean parameter
+
+  if(!(length(trueMean) == 1 && is.na(trueMean)==TRUE))
+  {
+    ParameterMu0Check(mu0 = trueMean,increases)
+  }
+
   # checking theta parameter
 
   if(!is.double(theta) | theta < 0)
@@ -134,7 +141,7 @@ SEResamplingMean <- function(initialSample, resamplingMethod=ClassicalBootstrap,
 
   # checking resamplingMethod parameter
 
-  if(!(deparse(substitute(resamplingMethod)) %in% resamplingMethods))
+  if(!(resamplingMethod %in% resamplingMethods))
   {
     stop("Parameter resamplingMethod should be a proper name of the resampling method")
   }
@@ -144,6 +151,15 @@ SEResamplingMean <- function(initialSample, resamplingMethod=ClassicalBootstrap,
   if(!is.logical(increases))
   {
     stop("Parameter increases should have logical value")
+  }
+
+  # if we have increases, then all initial fuzzy numbers have to be changed
+
+  if(increases)
+  {
+
+    initialSample <- TransformFromIncreases(initialSample)
+
   }
 
 
@@ -157,7 +173,7 @@ SEResamplingMean <- function(initialSample, resamplingMethod=ClassicalBootstrap,
   {
     # generate secondary sample
 
-    secondarySample <- resamplingMethod(initialSample, b = nrow(initialSample), increases)
+    secondarySample <- get(resamplingMethod)(initialSample, b = nrow(initialSample), increases=FALSE)
 
     # cat("\n secondarySample: \n")
     # print(as.matrix(secondarySample))
@@ -189,6 +205,13 @@ SEResamplingMean <- function(initialSample, resamplingMethod=ClassicalBootstrap,
     SEmean <- sqrt(SEmean / (repetitions - 1))
 
   } else {
+
+    # transform trueMean if we have increases
+
+    if(increases)
+    {
+      trueMean <- TransformFromIncreases(trueMean)
+    }
 
     # calculate MSE
 

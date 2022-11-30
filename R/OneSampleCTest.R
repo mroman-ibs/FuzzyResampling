@@ -59,7 +59,7 @@
 #'
 #' # calculate the p-value using the VA resampling method
 #'
-#' OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5),resamplingMethod = VAMethod)
+#' OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5),resamplingMethod = "VAMethod")
 #'
 
 #'
@@ -78,8 +78,10 @@
 # C bootstrapped test for one mean
 
 OneSampleCTest <- function(initialSample, mu_0,
-                           numberOfSamples = 100, theta = 1/3, resamplingMethod = ClassicalBootstrap, increases = FALSE)
+                           numberOfSamples = 100, theta = 1/3, resamplingMethod = "ClassicalBootstrap", increases = FALSE)
 {
+
+  # print(as.list(match.call()))
 
   # changing possible vector to matrix
 
@@ -91,6 +93,10 @@ OneSampleCTest <- function(initialSample, mu_0,
   # check the initial sample
 
   ParameterCheckForInitialSample(initialSample)
+
+  # checking parameter mu_0 for validity
+
+  ParameterMu0Check(mu0 = mu_0, increases)
 
   # checking numberOfSamples parameter
 
@@ -108,7 +114,7 @@ OneSampleCTest <- function(initialSample, mu_0,
 
   # checking resamplingMethod parameter
 
-  if(!(deparse(substitute(resamplingMethod)) %in% resamplingMethods))
+  if (!(resamplingMethod %in% resamplingMethods))
   {
     stop("Parameter resamplingMethod should be a proper name of the resampling method")
   }
@@ -119,6 +125,17 @@ OneSampleCTest <- function(initialSample, mu_0,
   {
     stop("Parameter increases should have logical value")
   }
+
+  # if we have increases, then all initial fuzzy numbers have to be changed
+
+  if(increases)
+  {
+    mu_0 <- TransformFromIncreases(mu_0)
+
+    initialSample <- TransformFromIncreases(initialSample)
+
+  }
+
 
 
   # calculation of C test without bootstrap (step 1)
@@ -137,7 +154,7 @@ OneSampleCTest <- function(initialSample, mu_0,
 
     # generate bootstrap sample (step 3)
 
-    bootstrapSample <- resamplingMethod(initialSample, n,  increases)
+    bootstrapSample <- get(resamplingMethod)(initialSample, n,  increases=FALSE)
 
     # calculate bootstrapped statistics (step 4)
 

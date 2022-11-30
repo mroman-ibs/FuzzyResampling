@@ -14,7 +14,7 @@ Description: The classical (i.e. Efron's, see Efron and Tibshirani (1994, ISBN:9
  like calculation of the Bertoluzza et al.'s distance (aka the mid/spread distance, see Bertoluzza et al. (1995) "On a new class of distances between fuzzy numbers")
  and estimation of the p-value of the one-sample bootstrapped test for the mean (see Lubiano et al. (2016, <doi:10.1016/j.ejor.2015.11.016>)).
  Additionally, there are procedures which randomly generate trapezoidal fuzzy numbers using some well-known statistical distributions.
-Imports: stats
+Imports: stats, utils
 URL: https://github.com/mroman-ibs/FuzzyResampling
 BugReports: https://github.com/mroman-ibs/FuzzyResampling/issues
 License: GPL-3

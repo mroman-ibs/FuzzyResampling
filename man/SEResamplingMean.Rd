@@ -6,7 +6,7 @@
 \usage{
 SEResamplingMean(
   initialSample,
-  resamplingMethod = ClassicalBootstrap,
+  resamplingMethod = "ClassicalBootstrap",
   repetitions = 100,
   trueMean = NA,
   theta = 1/3,
@@ -81,7 +81,7 @@ SEResamplingMean(fuzzyValues)
 
 # calculate the SE of the mean using the VA resampling method
 
-SEResamplingMean(fuzzyValues, resamplingMethod = VAMethod)
+SEResamplingMean(fuzzyValues, resamplingMethod = "VAMethod")
 
 # calculate the MSE of the given mean using the classical (i.e. Efron's) bootstrap
 
@@ -89,7 +89,7 @@ SEResamplingMean(fuzzyValues, trueMean = c(0,0.5,1,2))
 
 # calculate the MSE of the given mean using the VA resampling method
 
-SEResamplingMean(fuzzyValues, resamplingMethod = VAMethod, trueMean = c(0,0.5,1,2))
+SEResamplingMean(fuzzyValues, resamplingMethod = "VAMethod", trueMean = c(0,0.5,1,2))
 
 
 }

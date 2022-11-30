@@ -62,7 +62,7 @@
 #'
 #' # calculate the p-value using the VA resampling method
 #'
-#' TwoSampleCTest(fuzzyValues, fuzzyValuesShift, resamplingMethod = VAMethod)
+#' TwoSampleCTest(fuzzyValues, fuzzyValuesShift, resamplingMethod = "VAMethod")
 #'
 
 #'
@@ -82,7 +82,7 @@
 # C bootstrapped test for two means
 
 TwoSampleCTest <- function(initialSample1, initialSample2,
-                           numberOfSamples = 100, theta = 1/3, resamplingMethod = ClassicalBootstrap, increases = FALSE)
+                           numberOfSamples = 100, theta = 1/3, resamplingMethod = "ClassicalBootstrap", increases = FALSE)
 {
 
   # changing possible vector to matrix
@@ -123,7 +123,7 @@ TwoSampleCTest <- function(initialSample1, initialSample2,
 
   # checking resamplingMethod parameter
 
-  if(!(deparse(substitute(resamplingMethod)) %in% resamplingMethods))
+  if(!(resamplingMethod %in% resamplingMethods))
   {
     stop("Parameter resamplingMethod should be a proper name of the resampling method")
   }
@@ -133,6 +133,16 @@ TwoSampleCTest <- function(initialSample1, initialSample2,
   if(!is.logical(increases))
   {
     stop("Parameter increases should have logical value")
+  }
+
+  # if we have increases, then all initial fuzzy numbers have to be changed
+
+  if(increases)
+  {
+    initialSample1 <- TransformFromIncreases(initialSample1)
+
+    initialSample2 <- TransformFromIncreases(initialSample2)
+
   }
 
 
@@ -161,9 +171,9 @@ TwoSampleCTest <- function(initialSample1, initialSample2,
 
     # generate bootstrap sample (step 3)
 
-    bootstrapSample1 <- resamplingMethod(initialSample1Changed, n1,  increases)
+    bootstrapSample1 <- get(resamplingMethod)(initialSample1Changed, n1,  increases=FALSE)
 
-    bootstrapSample2 <- resamplingMethod(initialSample2Changed, n2,  increases)
+    bootstrapSample2 <- get(resamplingMethod)(initialSample2Changed, n2,  increases=FALSE)
 
     # calculate bootstrapped statistics (step 4)
 

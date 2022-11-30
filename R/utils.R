@@ -404,3 +404,43 @@ ValueB <- function(x, theta)
 
 }
 
+# parameter mu0 check for validity
+
+ParameterMu0Check <- function(mu0, increases = FALSE)
+{
+  # checking if this is a vector
+
+  if(!is.vector(mu0) | length(mu0) != 4)
+  {
+    stop("Parameter mean should be a vector of length 4")
+  }
+
+  # checking if there are NA's
+
+  if(any(is.na(mu0)))
+  {
+    stop("There are some NA in parameter mean")
+  }
+
+  # checking if values are numeric
+
+  if(!is.numeric(mu0))
+  {
+    stop("Parameter mean should be a numeric value")
+  }
+
+  if(increases)
+  {
+    mu0 <- TransformFromIncreases(mu0)
+  }
+
+  # checking consistency of fuzzy numbers
+
+  if(!IsFuzzy(mu0))
+  {
+    stop("Parameter mean is not a correct fuzzy number")
+  }
+
+  return(TRUE)
+
+}

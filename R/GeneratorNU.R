@@ -165,3 +165,6 @@ GeneratorNU <- function(n, mu, sigma, a, b, increases = FALSE, ...)
 
   return(initialSample)
 }
+
+
+samplingGenerators <- c("GeneratorNU","GeneratorNExpUU")

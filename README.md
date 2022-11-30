@@ -97,7 +97,15 @@ The following procedures are available in the library:
 
   - *BertoluzzaDistance* - calculation of the Bertoluzza et al.’s
     distance (aka the mid/spread distance, see (Bertoluzza, Corral, and
-    Salas 1995)).
+    Salas 1995)),
+  - *ComparisonOneSampleCTest* - comparison of resampling methods based
+    on percentage of rejections for the one-sample C-test (see
+    (Grzegorzewski and Romaniuk 2022)),
+  - *ComparisonSEMean* - comparison of resampling methods based on the
+    SE/MSE for the mean (see (Grzegorzewski and Romaniuk 2022)),
+  - *ComparePowerOneSampleCTest* - comparison of resampling methods
+    based on percentage of rejections for the one-sample C-test (see
+    (Grzegorzewski and Romaniuk 2022)).
 
 ## Installation
 
@@ -188,7 +196,7 @@ OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5))
 
 # calculate the p-value using the VA resampling method
 
-OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5),resamplingMethod = VAMethod)
+OneSampleCTest(fuzzyValues, mu_0 = c(0,0.5,1,1.5),resamplingMethod = "VAMethod")
 #> [1] 0.91
 
 # seed PRNG
@@ -203,7 +211,7 @@ TwoSampleCTest(fuzzyValues, fuzzyValues+0.1)
 
 # calculate the p-value using the VA resampling method
 
-TwoSampleCTest(fuzzyValues, fuzzyValues+0.1,resamplingMethod = VAMethod)
+TwoSampleCTest(fuzzyValues, fuzzyValues+0.1,resamplingMethod = "VAMethod")
 #> [1] 0.95
 
 
@@ -223,7 +231,7 @@ SEResamplingMean(fuzzyValues)
 
 # calculate the SE of the mean using the VA resampling method
 
-SEResamplingMean(fuzzyValues, resamplingMethod = VAMethod)
+SEResamplingMean(fuzzyValues, resamplingMethod = "VAMethod")
 #> $mean
 #> [1] -0.2846996  0.5985998  0.8490542  1.7328917
 #> 
@@ -241,7 +249,7 @@ SEResamplingMean(fuzzyValues, trueMean = c(0,0.5,1,2))
 
 # calculate the MSE of the given mean using the VA resampling method
 
-SEResamplingMean(fuzzyValues, resamplingMethod = VAMethod, trueMean = c(0,0.5,1,2))
+SEResamplingMean(fuzzyValues, resamplingMethod = "VAMethod", trueMean = c(0,0.5,1,2))
 #> $mean
 #> [1] 0.0 0.5 1.0 2.0
 #> 

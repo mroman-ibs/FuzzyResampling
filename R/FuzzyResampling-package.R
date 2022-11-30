@@ -1,7 +1,5 @@
-#' @section  Resampling procedures:
-#' The following resampling procedures are available in the package:
-#'
-#'The following procedures are available in the library:
+#' @section
+#' The following procedures are available in the library:
 #'
 
 #'  + *ClassicalBootstrap* - classical approach based on Efron's method,
@@ -23,7 +21,10 @@
 #'  + *SEResamplingMean* - estimation of the standard error or the mean-squared error for the mean,
 #'
 
-#'  + *BertoluzzaDistance* - calculation of the Bertoluzza et al.'s distance (aka the mid/spread distance).
+#'  + *BertoluzzaDistance* - calculation of the Bertoluzza et al.'s distance (aka the mid/spread distance),
+#'  + *ComparisonOneSampleCTest* - comparison of resampling methods based on percentage of rejections for the one-sample C-test,
+#'  + *ComparisonSEMean* - comparison of resampling methods based on the SE/MSE for the mean,
+#'  + *ComparePowerOneSampleCTest* - comparison of resampling methods based on percentage of rejections for the one-sample C-test,
 
 
 #' @keywords internal
