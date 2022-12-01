@@ -72,9 +72,10 @@ Flexible resampling for fuzzy data based on the canonical representation
 International Journal of Computational Intelligence Systems, 13 (1), pp. 1650-1662
 }
 \seealso{
-\code{\link{GeneratorNU}}
+\code{\link{GeneratorNU}}, \code{\link{GeneratorFuzzyNumbers}}
 
 Other sampling functions: 
+\code{\link{GeneratorFuzzyNumbers}()},
 \code{\link{GeneratorNU}()}
 }
 \concept{sampling functions}

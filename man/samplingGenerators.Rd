@@ -5,7 +5,7 @@
 \alias{samplingGenerators}
 \title{A vector containing names of all sampling generators}
 \format{
-An object of class \code{character} of length 2.
+An object of class \code{character} of length 3.
 }
 \usage{
 samplingGenerators

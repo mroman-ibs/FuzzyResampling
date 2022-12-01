@@ -47,7 +47,8 @@ The following procedures are available in the library:
   
 + Random generation of the initial samples:  
   + *GeneratorNU* - generation of the initial sample using the normal and uniform distributions (see [@grzegorzewskietal2020]),
-  + *GeneratorNExpUU* - generation of the initial sample using the normal, exponential and uniform distributions (see [@grzegorzewskietal2020]).
+  + *GeneratorNExpUU* - generation of the initial sample using the normal, exponential and uniform distributions (see [@grzegorzewskietal2020]),
+  + *GeneratorFuzzyNumbers* - generation of the initial sample using various random distributions.
   
 + Applications of the bootstrapped samples:  
 

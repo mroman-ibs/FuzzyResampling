@@ -70,7 +70,7 @@
 #'
 #' @family sampling functions
 #'
-#' @seealso \code{\link{GeneratorNExpUU}}
+#' @seealso \code{\link{GeneratorNExpUU}}, \code{\link{GeneratorFuzzyNumbers}}
 #'
 #' @importFrom stats runif rnorm
 
@@ -121,49 +121,11 @@ GeneratorNU <- function(n, mu, sigma, a, b, increases = FALSE, ...)
     stop("Parameter increases should have logical value")
   }
 
-  # output matrix of fuzzy numbers
+  # invoking the universal procedure
 
-  initialSample <- matrix(1, n, 4)
+  GeneratorFuzzyNumbers(n,"rnorm",list(mean=mu,sd=sigma),"runif",list(min=0,max=a),"runif",list(min=0,max=b),
+                        "runif",list(min=0,max=b),increases,...)
 
-  # simulate "true" origins and incresases of the core
-
-  origins <- rnorm(n, mu, sigma)
-
-  increaseLCore <- runif(n, 0, a)
-
-  increaseRCore <- runif(n, 0, a)
-
-  # calculate core in the output matrix
-
-  initialSample[,2] <- origins - increaseLCore
-
-  initialSample[,3] <- origins + increaseRCore
-
-  # generate increases of the support
-
-  increaseLSupport <- runif(n, 0, b)
-
-  increaseRSupport <- runif(n, 0, b)
-
-  # calculate the support in the output matrix
-
-  if(increases == TRUE)
-  {
-    initialSample[,1] <- increaseLSupport
-
-    initialSample[,4] <- increaseRSupport
-
-  } else {
-
-    initialSample[,1] <- initialSample[,2] - increaseLSupport
-
-    initialSample[,4] <- initialSample[,3] + increaseRSupport
-
-  }
-
-
-
-  return(initialSample)
 }
 
 

@@ -6,4 +6,4 @@
 #'
 #' @export
 
-samplingGenerators <- c("GeneratorNU","GeneratorNExpUU")
+samplingGenerators <- c("GeneratorNU","GeneratorNExpUU","GeneratorFuzzyNumbers")

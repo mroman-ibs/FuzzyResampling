@@ -13,6 +13,7 @@
 
 #'  + *GeneratorNU* - generation of the initial sample using the normal and uniform distributions,
 #'  + *GeneratorNExpUU* - generation of the initial sample using the normal, exponential and uniform distributions,
+#'  + *GeneratorFuzzyNumbers* - generation of the initial sample using various random distributions,
 #'
 
 #'
