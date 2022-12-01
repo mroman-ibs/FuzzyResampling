@@ -94,6 +94,7 @@
 #' Uncertainty and Imprecision in Decision Making and Decision Support: New Advances, Challenges, and Perspectives, pp. 28-47
 #' Springer
 #'
+#'
 #' @export
 #'
 
@@ -237,6 +238,4 @@ SEResamplingMean <- function(initialSample, resamplingMethod="ClassicalBootstrap
 
 
 
-resamplingMethods <- c("ClassicalBootstrap", "VAMethod", "EWMethod",
-                       "VAFMethod", "DMethod", "WMethod")
 
