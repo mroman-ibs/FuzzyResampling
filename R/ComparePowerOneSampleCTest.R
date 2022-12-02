@@ -52,6 +52,8 @@
 #'
 #' @examples
 #'
+#' \dontrun{
+#'
 #' # seed PRNG
 #'
 #' set.seed(1234)
@@ -60,7 +62,7 @@
 #' # and two values of the shifts
 #'
 #' ComparePowerOneSampleCTest("GeneratorNU",mu_0 = c(-0.4,-0.1,0.1,0.4), shiftVector = c(0,0.5),
-#' mu = 0, sigma = 1, a = 0.2, b = 0.6)
+#' mu = 0, sigma = 1, a = 0.2, b = 0.6)}
 #'
 #'
 #'

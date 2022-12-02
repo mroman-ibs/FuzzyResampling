@@ -43,6 +43,7 @@
 #'
 #' @examples
 #'
+#' \dontrun{
 #'
 #' # seed PRNG
 #'
@@ -51,7 +52,7 @@
 #' # calculate the SE of the mean for the synthetic data generated using GeneratorNU function
 #'
 #' ComparisonSEMean(generator = "GeneratorNU",sampleSize = 10,
-#'  numberOfSamples = 100, repetitions = 10,mu = 0, sigma = 1,a = 0.5, b = 1)
+#'  numberOfSamples = 100, repetitions = 10,mu = 0, sigma = 1,a = 0.5, b = 1)}
 #'
 #'
 #' @references

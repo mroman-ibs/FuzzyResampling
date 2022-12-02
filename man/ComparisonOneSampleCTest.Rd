@@ -56,6 +56,8 @@ The output of this procedure is the percentage of rejections in the sequence of 
 }
 \examples{
 
+\dontrun{
+
 # seed PRNG
 
 set.seed(1234)
@@ -63,7 +65,7 @@ set.seed(1234)
 # compare the resampling methods for the synthetic data generated using GeneratorNU function
 
 ComparisonOneSampleCTest(generator="GeneratorNU",mu_0 = c(-0.4,-0.1,0.1,0.4),
- sampleSize = 10,numberOfSamples = 100, initialSamples = 100,mu = 0, sigma = 1,a = 0.2,b = 0.6)
+ sampleSize = 10,numberOfSamples = 100, initialSamples = 100,mu = 0, sigma = 1,a = 0.2,b = 0.6)}
 
 
 
