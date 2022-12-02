@@ -80,7 +80,7 @@ Interval-based, nonparametric approach for resampling of fuzzy numbers
 Soft Computing, 23 (14), pp. 5883-5903
 }
 \seealso{
-@seealso \code{\link{ClassicalBootstrap}},
+\code{\link{ClassicalBootstrap}},
 \code{\link{EWMethod}} for the EW method, \code{\link{VAFMethod}} for the VAF method,
 \code{\link{VAAMethod}} for the VAA method, \code{\link{WMethod}} for the w method
 

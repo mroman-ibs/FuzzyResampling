@@ -72,6 +72,9 @@ with the parameters \code{parametersSupportLeftRD}, respectively), and the right
 (the function \code{supportRightRandomDist}
 with the parameters \code{parametersSupportRightRD}, respectively).
 
+Names of these generators for random probabilities and their respective parameters should be in the form
+required by \code{stats} package.
+
 The output is given as a matrix.
 In each row, there is a single fuzzy number in one of the forms:
 \enumerate{
@@ -100,6 +103,11 @@ GeneratorFuzzyNumbers(10,"rnorm",list(mean=0,sd=1),"rexp",list(rate=2),"runif",
 Grzegorzewski, P., Hryniewicz, O., Romaniuk, M. (2020)
 Flexible resampling for fuzzy data based on the canonical representation
 International Journal of Computational Intelligence Systems, 13 (1), pp. 1650-1662
+
+Grzegorzewski, P., Romaniuk, M. (2022)
+Bootstrapped Kolmogorov-Smirnov Test for Epistemic Fuzzy Data
+Information Processing and Management of Uncertainty in Knowledge-Based Systems
+Springer
 }
 \seealso{
 \code{\link{GeneratorNExpUU}}

@@ -10,7 +10,17 @@ An object of class \code{character} of length 6.
 \usage{
 resamplingMethods
 }
+\value{
+This function returns a vector of strings.
+}
 \description{
 \code{resamplingMethods} is a vector containing names of all resampling methods.
+}
+\examples{
+
+# check the names of the available resampling methods
+
+resamplingMethods
+
 }
 \keyword{datasets}

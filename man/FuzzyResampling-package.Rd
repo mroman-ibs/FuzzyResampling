@@ -20,6 +20,7 @@ The classical (i.e. Efron's, see Efron and Tibshirani (1994, ISBN:978-0412042317
 \item \emph{WMethod} - resampling method which uses the special \emph{w density} to "smooth" the output fuzzy value,
 \item \emph{GeneratorNU} - generation of the initial sample using the normal and uniform distributions,
 \item \emph{GeneratorNExpUU} - generation of the initial sample using the normal, exponential and uniform distributions,
+\item \emph{GeneratorFuzzyNumbers} - generation of the initial sample using various random distributions,
 \item \emph{OneSampleCTest} - estimation of the p-value of the one-sample test for the mean,
 \item \emph{TwoSampleCTest} - estimation of the p-value of the two-sample test for the mean,
 \item \emph{SEResamplingMean} - estimation of the standard error or the mean-squared error for the mean,

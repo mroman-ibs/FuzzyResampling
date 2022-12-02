@@ -10,8 +10,18 @@ An object of class \code{character} of length 3.
 \usage{
 samplingGenerators
 }
+\value{
+This function returns a vector of strings.
+}
 \description{
 \code{samplingGenerators} is a vector containing names of all generators which can be used to sample synthetic
 fuzzy numbers (trapezoidal or triangular).
+}
+\examples{
+
+# check the names of the available sampling generators
+
+samplingGenerators
+
 }
 \keyword{datasets}

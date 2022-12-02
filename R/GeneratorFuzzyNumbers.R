@@ -15,6 +15,9 @@
 #'  (the function \code{supportRightRandomDist}
 #'  with the parameters \code{parametersSupportRightRD}, respectively).
 #'
+#'  Names of these generators for random probabilities and their respective parameters should be in the form
+#'  required by \code{stats} package.
+#'
 #' The output is given as a matrix.
 #' In each row, there is a single fuzzy number in one of the forms:
 #' \enumerate{
@@ -88,6 +91,10 @@
 #' Flexible resampling for fuzzy data based on the canonical representation
 #' International Journal of Computational Intelligence Systems, 13 (1), pp. 1650-1662
 #'
+#' Grzegorzewski, P., Romaniuk, M. (2022)
+#' Bootstrapped Kolmogorov-Smirnov Test for Epistemic Fuzzy Data
+#' Information Processing and Management of Uncertainty in Knowledge-Based Systems
+#' Springer
 #'
 #' @export
 #'

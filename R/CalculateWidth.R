@@ -68,7 +68,7 @@
 #' @references
 #'
 #' Ban, A.I., Coroianu, L., Grzegorzewski, P. (2015)
-#' Fuzy Numbers: Approximations, Ranking and Applications
+#' Fuzzy Numbers: Approximations, Ranking and Applications
 #' Institute of Computer Sciences, Polish Academy of Sciences
 #'
 #'
