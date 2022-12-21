@@ -123,7 +123,7 @@ GeneratorFuzzyNumbers <- function(n, originalRandomDist, parametersOriginalRD,
 
   # checking the validity of increases
 
-  if(!is.logical(increases))
+  if(!is.logical(increases) | is.na(increases))
   {
     stop("Parameter increases should have logical value")
   }

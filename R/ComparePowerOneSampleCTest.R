@@ -87,9 +87,10 @@ ComparePowerOneSampleCTest <- function(generator, mu_0, shiftVector, sampleSize 
 {
   # checking shiftVector parameter
 
-  if(!is.vector(shiftVector) | !is.numeric(shiftVector))
+  if(!is.vector(shiftVector) | !is.numeric(shiftVector) | any(is.na(shiftVector)) |
+     any(is.infinite(shiftVector)))
   {
-    stop("Parameter shiftVector should be a numeric vector")
+    stop("Parameter shiftVector should be a numeric, finite vector")
   }
 
   # prealocate matrix

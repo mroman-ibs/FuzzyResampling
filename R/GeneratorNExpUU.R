@@ -109,7 +109,7 @@ GeneratorNExpUU <- function(n, mu, sigma, lambda, b, c, increases = FALSE, ...)
 
   # checking lambda parameter
 
-  if(!is.double(lambda) | lambda < 0)
+  if(!is.double(lambda) | lambda <= 0)
   {
     stop("Parameter lambda should be double value and > 0")
   }

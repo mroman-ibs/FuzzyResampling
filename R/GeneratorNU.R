@@ -104,14 +104,14 @@ GeneratorNU <- function(n, mu, sigma, a, b, increases = FALSE, ...)
 
   if(!is.double(a) | a < 0)
   {
-    stop("Parameter a should be double value and > 0")
+    stop("Parameter a should be double value and >= 0")
   }
 
   # checking b parameter
 
   if(!is.double(b) | b < 0)
   {
-    stop("Parameter b should be double value and > 0")
+    stop("Parameter b should be double value and >= 0")
   }
 
   # checking the validity of increases

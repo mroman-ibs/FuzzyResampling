@@ -104,10 +104,12 @@ ComparisonOneSampleCTest<- function(generator, mu_0, shift=0, sampleSize = 10,
 
   # checking shift parameter
 
-  if(!is.double(shift))
+  if(!is.double(shift) | is.infinite(shift))
   {
-    stop("Parameter shift should be double value")
+    stop("Parameter shift should be double, finite value")
   }
+
+
 
   # checking sampleSize parameter
 

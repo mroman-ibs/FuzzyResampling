@@ -15,4 +15,4 @@
 #' @export
 
 resamplingMethods <- c("ClassicalBootstrap", "VAMethod", "EWMethod",
-                       "VAFMethod", "DMethod", "WMethod")
+                       "VAFMethod", "DMethod", "WMethod", "VAAMethod")

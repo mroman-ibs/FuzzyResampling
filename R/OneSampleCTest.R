@@ -90,6 +90,13 @@ OneSampleCTest <- function(initialSample, mu_0,
     initialSample <- matrix(initialSample,nrow=1)
   }
 
+  # checking the validity of increases
+
+  if(!is.logical(increases))
+  {
+    stop("Parameter increases should have logical value")
+  }
+
   # check the initial sample
 
   ParameterCheckForInitialSample(initialSample)
@@ -119,12 +126,7 @@ OneSampleCTest <- function(initialSample, mu_0,
     stop("Parameter resamplingMethod should be a proper name of the resampling method")
   }
 
-  # checking the validity of increases
 
-  if(!is.logical(increases))
-  {
-    stop("Parameter increases should have logical value")
-  }
 
   # if we have increases, then all initial fuzzy numbers have to be changed
 
@@ -136,7 +138,12 @@ OneSampleCTest <- function(initialSample, mu_0,
 
   }
 
+  # checking consistency of fuzzy numbers
 
+  if(!all(apply(initialSample, 1, IsFuzzy)))
+  {
+    stop("Some values in initial sample are not correct fuzzy numbers")
+  }
 
   # calculation of C test without bootstrap (step 1)
 
