@@ -1,9 +1,9 @@
 Package: FuzzyResampling
 Type: Package
 Title: Resampling Methods for Triangular and Trapezoidal Fuzzy Numbers
-Version: 0.6.0
+Version: 0.6.1
 Authors@R: c(
-    person("Maciej", "Romaniuk", email = "mroman@ibspan.waw.pl", role = "cre"),
+    person("Maciej", "Romaniuk", email = "mroman@ibspan.waw.pl", role = c("aut","cre")),
     person("Przemyslaw", "Grzegorzewski", email = "przemyslaw.grzegorzewski@ibspan.waw.pl", role = "aut"),
     person("Olgierd", "Hryniewicz", email = "hryniewi@ibspan.waw.pl", role = "aut"))
 Maintainer: Maciej Romaniuk <mroman@ibspan.waw.pl>
@@ -20,7 +20,7 @@ BugReports: https://github.com/mroman-ibs/FuzzyResampling/issues
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Roxygen: list(markdown = TRUE)
 Suggests: 
     testthat (>= 3.0.0)
