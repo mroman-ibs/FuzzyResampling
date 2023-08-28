@@ -1,0 +1,14 @@
+bibentry(
+  bibtype  = "Article",
+  title    = "Resampling Fuzzy Numbers with Statistical Applications: {F}uzzy{R}esampling Package",
+  author   = c(
+    person("Maciej", "Romaniuk", email = "mroman@ibspan.waw.pl", role = c("aut","cre")),
+    person("Przemyslaw", "Grzegorzewski", email = "przemyslaw.grzegorzewski@ibspan.waw.pl", role = "aut")
+    ),
+  journal  = "The R Journal",
+  year     = "2023",
+  volume   = " ",
+  number   = " ",
+  pages    = " ",
+  doi      = " "
+)
