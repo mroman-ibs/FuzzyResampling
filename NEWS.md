@@ -1,3 +1,11 @@
+# FuzzyResampling 0.6.2
+
+* Added tests based on testthat package
+* Added necessary details to CITATION file
+* Corrected author field in DESCRIPTION
+
+
+
 # FuzzyResampling 0.5
 
 * All of the functions have now the correct CamelCaseNames style.
