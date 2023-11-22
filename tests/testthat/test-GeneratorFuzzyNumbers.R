@@ -34,11 +34,11 @@ test_that("Function reports errors", {
 
   expect_error(GeneratorFuzzyNumbers(n=-10,"rnorm",list(mean=0,sd=1),"rexp",list(rate=2),"runif",
                                      list(min=0,max=0.6),"runif",list(min=0,max=1)),
-               "Parameter n should be integer value and > 1")
+               "Parameter n should be integer value and > 0")
 
   expect_error(GeneratorFuzzyNumbers(n=3.4,"rnorm",list(mean=0,sd=1),"rexp",list(rate=2),"runif",
                                      list(min=0,max=0.6),"runif",list(min=0,max=1)),
-               "Parameter n should be integer value and > 1")
+               "Parameter n should be integer value and > 0")
 
   expect_error(GeneratorFuzzyNumbers(n=10,"rnorm",list(mean=0,sd=1),"rexp",list(rate=2),"runif",
                                      list(min=0,max=0.6),"runif",list(min=0,max=1),increases = NA),

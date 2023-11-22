@@ -59,13 +59,13 @@ test_that("Function reports errors", {
   # tests
 
   expect_error(GeneratorNU(n=-15, mu=1.5,sigma=1.5 , a= 1.5, b=2,increases = FALSE),
-               "Parameter n should be integer value and > 1")
+               "Parameter n should be integer value and > 0")
 
   expect_error(GeneratorNU(n=.2, mu=1.5,sigma=1.5 , a= 1.5, b=2,increases = FALSE),
-               "Parameter n should be integer value and > 1")
+               "Parameter n should be integer value and > 0")
 
   expect_error(GeneratorNU(n=NA, mu=1.5,sigma=1.5 , a= 1.5, b=2,increases = FALSE),
-               "Parameter n should be integer value and > 1")
+               "Parameter n should be integer value and > 0")
 
   expect_error(GeneratorNU(n=10, mu="c",sigma=1.5 , a= 1.5, b=2,increases = FALSE),
                "Parameter mu should be double value")

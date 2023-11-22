@@ -59,13 +59,13 @@ test_that("Function reports errors", {
   # tests
 
   expect_error(GeneratorNExpUU(n=-2,mu=0.5,sigma = 1,lambda = 0.5,b=1,c=2),
-               "Parameter n should be integer value and > 1")
+               "Parameter n should be integer value and > 0")
 
   expect_error(GeneratorNExpUU(n=10,mu=c(1,"a"),sigma = 1,lambda = 0.5,b=1,c=2),
                "Parameter mu should be double value")
 
   expect_error(GeneratorNExpUU(n=NA,mu=10,sigma = 1,lambda = 0.5,b=1,c=2),
-               "Parameter n should be integer value and > 1")
+               "Parameter n should be integer value and > 0")
 
   expect_error(GeneratorNExpUU(n=10,mu=10,sigma = -1,lambda = 0.5,b=1,c=2),
                "Parameter sigma should be double value and > 0")

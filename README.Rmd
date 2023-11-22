@@ -22,7 +22,7 @@ In the classical approach, secondary samples are drawing with replacement from t
 Therefore most of these bootstrap samples contain repeated values. Moreover, if the  size of the primary sample is small then all secondary samples consist of only a few distinct values, which is a serious disadvantage.
 
 To overcome this problem, special resampling algorithms for fuzzy data were introduced (see [@grzegorzewski2019; @grzegorzewskietal2020; 
-@grzegorzewskiamcs2020;@GrzegorzewskiRom2021;@romaniuk_hryniewicz]).
+@grzegorzewskiamcs2020;@GrzegorzewskiRom2021;@romaniuk_hryniewicz;@fuzzyResampling]).
 These methods randomly create values that are "similar" to values from the initial sample, but not exactly the same.
 During the creation process, some of the characteristics of the initial fuzzy values are kept (e.g., the value, the width, etc.).
 It was shown that these algorithms provide serious advantages in some statistical areas (like standard error

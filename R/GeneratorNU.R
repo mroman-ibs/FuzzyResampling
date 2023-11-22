@@ -81,9 +81,9 @@ GeneratorNU <- function(n, mu, sigma, a, b, increases = FALSE, ...)
 
   # checking n parameter
 
-  if(!IfInteger(n) | n <= 1)
+  if(!IfInteger(n) | n <= 0)
   {
-    stop("Parameter n should be integer value and > 1")
+    stop("Parameter n should be integer value and > 0")
   }
 
   # checking mu parameter

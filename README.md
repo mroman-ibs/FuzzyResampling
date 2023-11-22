@@ -14,16 +14,17 @@ distinct values, which is a serious disadvantage.
 
 To overcome this problem, special resampling algorithms for fuzzy data
 were introduced (see (Grzegorzewski, Hryniewicz, and Romaniuk 2019,
-2020a, 2020b; Grzegorzewski and Romaniuk 2022; Romaniuk and Hryniewicz
-2019)). These methods randomly create values that are “similar” to
-values from the initial sample, but not exactly the same. During the
-creation process, some of the characteristics of the initial fuzzy
-values are kept (e.g., the value, the width, etc.). It was shown that
-these algorithms provide serious advantages in some statistical areas
-(like standard error estimation or hypothesis testing) if they are
-compared with the classical approach. For detailed information
-concerning the theoretical foundations and practical applications of
-these resampling methods please see the above-mentioned references.
+2020a, 2020b; Grzegorzewski and Romaniuk 2022; M. Romaniuk and
+Hryniewicz 2019; Maciej Romaniuk and Grzegorzewski 2023)). These methods
+randomly create values that are “similar” to values from the initial
+sample, but not exactly the same. During the creation process, some of
+the characteristics of the initial fuzzy values are kept (e.g., the
+value, the width, etc.). It was shown that these algorithms provide
+serious advantages in some statistical areas (like standard error
+estimation or hypothesis testing) if they are compared with the
+classical approach. For detailed information concerning the theoretical
+foundations and practical applications of these resampling methods
+please see the above-mentioned references.
 
 The initial sample (in the form of a vector or a matrix) should consist
 of triangular or trapezoidal fuzzy numbers.
@@ -52,9 +53,9 @@ The following procedures are available in the library:
   - *VAFMethod* - resampling method which preserves the value, ambiguity
     and fuzziness (see (Grzegorzewski, Hryniewicz, and Romaniuk 2020a)),
   - *DMethod* - resampling method which preserves the left end of the
-    cores and increments (see (Romaniuk and Hryniewicz 2019)),
+    cores and increments (see (M. Romaniuk and Hryniewicz 2019)),
   - *WMethod* - resampling method which uses the special *w density* to
-    “smooth” the output fuzzy value (see (Romaniuk and Hryniewicz
+    “smooth” the output fuzzy value (see (M. Romaniuk and Hryniewicz
     2019)).
 
 - Random generation of the initial samples:
@@ -360,6 +361,14 @@ A. Gil. 2016. “Hypothesis Testing for Means in Connection with Fuzzy
 Rating Scale-Based Data: Algorithms and Applications.” *European Journal
 of Operational Research* 251: 918–29.
 <https://doi.org/10.1016/j.ejor.2015.11.016>.
+
+</div>
+
+<div id="ref-fuzzyResampling" class="csl-entry">
+
+Romaniuk, Maciej, and Przemyslaw Grzegorzewski. 2023. “Resampling Fuzzy
+Numbers with Statistical Applications: FuzzyResampling Package.” *The R
+Journal* 15: 271–83. <https://doi.org/10.32614/RJ-2023-036>.
 
 </div>
 
