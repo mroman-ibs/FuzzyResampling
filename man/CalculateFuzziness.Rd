@@ -79,9 +79,9 @@ International Journal of Computational Intelligence Systems, 13 (1), pp. 1650-16
 \code{\link{CalculateWidth}} for calculation of the width
 
 Other characteristics of fuzzy numbers functions: 
+\code{\link{CalculateAmbiguity}()},
 \code{\link{CalculateAmbiguityL}()},
 \code{\link{CalculateAmbiguityR}()},
-\code{\link{CalculateAmbiguity}()},
 \code{\link{CalculateExpValue}()},
 \code{\link{CalculateValue}()},
 \code{\link{CalculateWidth}()}

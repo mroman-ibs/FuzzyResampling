@@ -80,8 +80,8 @@ Springer
 \code{\link{CalculateWidth}} for calculation of the width
 
 Other characteristics of fuzzy numbers functions: 
-\code{\link{CalculateAmbiguityL}()},
 \code{\link{CalculateAmbiguity}()},
+\code{\link{CalculateAmbiguityL}()},
 \code{\link{CalculateExpValue}()},
 \code{\link{CalculateFuzziness}()},
 \code{\link{CalculateValue}()},

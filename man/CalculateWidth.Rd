@@ -80,9 +80,9 @@ Springer
 \code{\link{CalculateValue}} for calculation of the value
 
 Other characteristics of fuzzy numbers functions: 
+\code{\link{CalculateAmbiguity}()},
 \code{\link{CalculateAmbiguityL}()},
 \code{\link{CalculateAmbiguityR}()},
-\code{\link{CalculateAmbiguity}()},
 \code{\link{CalculateExpValue}()},
 \code{\link{CalculateFuzziness}()},
 \code{\link{CalculateValue}()}

@@ -1,7 +1,7 @@
 Package: FuzzyResampling
 Type: Package
 Title: Resampling Methods for Triangular and Trapezoidal Fuzzy Numbers
-Version: 0.6.3
+Version: 0.6.4
 Authors@R: c(
     person("Maciej", "Romaniuk", email = "mroman@ibspan.waw.pl", role = c("aut","cre")),
     person("Przemyslaw", "Grzegorzewski", email = "przemyslaw.grzegorzewski@ibspan.waw.pl", role = "aut"),
@@ -20,8 +20,10 @@ BugReports: https://github.com/mroman-ibs/FuzzyResampling/issues
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Roxygen: list(markdown = TRUE)
 Suggests: 
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    R.rsp
 Config/testthat/edition: 3
+VignetteBuilder: R.rsp
